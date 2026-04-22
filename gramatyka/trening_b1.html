@@ -13,10 +13,12 @@
             margin: 0 auto;
             padding: 20px;
         }
+
         h1 {
             text-align: center;
             color: #2c3e50;
         }
+
         .tab {
             overflow: hidden;
             border: 1px solid #ccc;
@@ -25,26 +27,30 @@
             display: flex;
             flex-wrap: wrap;
         }
-        .tab button {
-            background-color: inherit;
-            flex: 1;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 10px;
-            transition: 0.3s;
-            font-size: 14px;
-            font-weight: bold;
-            min-width: 120px;
-        }
-        .tab button:hover {
-            background-color: #d1d1d1;
-        }
-        .tab button.active {
-            background-color: #fff;
-            border-bottom: 3px solid #3498db;
-            color: #3498db;
-        }
+
+            .tab button {
+                background-color: inherit;
+                flex: 1;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 10px;
+                transition: 0.3s;
+                font-size: 14px;
+                font-weight: bold;
+                min-width: 120px;
+            }
+
+                .tab button:hover {
+                    background-color: #d1d1d1;
+                }
+
+                .tab button.active {
+                    background-color: #fff;
+                    border-bottom: 3px solid #3498db;
+                    color: #3498db;
+                }
+
         .tabcontent {
             display: none;
             padding: 20px;
@@ -54,18 +60,64 @@
             border-radius: 0 0 8px 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+
+        .rules-toggle {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+            .rules-toggle:hover {
+                background-color: #2980b9;
+            }
+
+            .rules-toggle.active {
+                background-color: #e74c3c;
+            }
+
+                .rules-toggle.active:hover {
+                    background-color: #c0392b;
+                }
+
         .rules-box {
+            display: none;
             background-color: #e8f4f8;
             padding: 15px;
             border-left: 5px solid #3498db;
             margin-bottom: 20px;
             border-radius: 4px;
             font-size: 15px;
+            animation: fadeIn 0.3s ease-in-out;
         }
+
+            .rules-box.visible {
+                display: block;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .rules-box h3 {
             margin-top: 0;
             color: #2980b9;
         }
+
         .question {
             margin-bottom: 25px;
             font-size: 16px;
@@ -73,6 +125,7 @@
             padding-bottom: 15px;
             border-bottom: 1px dashed #eee;
         }
+
         .hint {
             color: #2980b9;
             font-weight: bold;
@@ -81,6 +134,7 @@
             border-radius: 4px;
             margin-right: 5px;
         }
+
         input[type="text"] {
             padding: 8px;
             font-size: 16px;
@@ -89,30 +143,37 @@
             width: 260px;
             transition: 0.3s;
         }
-        input[type="text"]:focus {
-            border-color: #3498db;
-            outline: none;
-        }
+
+            input[type="text"]:focus {
+                border-color: #3498db;
+                outline: none;
+            }
+
         .correct {
             border-color: #27ae60 !important;
             background-color: #eafaf1;
         }
+
         .incorrect {
             border-color: #e74c3c !important;
             background-color: #fceceb;
         }
+
         .feedback {
             display: block;
             margin-top: 8px;
             font-weight: normal;
         }
-        .correct-text { 
-            color: #27ae60; 
+
+        .correct-text {
+            color: #27ae60;
             font-weight: bold;
         }
-        .incorrect-text { 
-            color: #e74c3c; 
+
+        .incorrect-text {
+            color: #e74c3c;
         }
+
         .feedback-details {
             background-color: #fff;
             border: 1px solid #ffcccc;
@@ -123,6 +184,7 @@
             color: #333;
             box-shadow: 0 2px 4px rgba(231,76,60,0.1);
         }
+
         .diff-error {
             background-color: #ffcccc;
             color: #c0392b;
@@ -131,6 +193,7 @@
             padding: 0 2px;
             border-radius: 2px;
         }
+
         .diff-correct {
             background-color: #d5f5e3;
             color: #27ae60;
@@ -139,16 +202,19 @@
             border-radius: 2px;
             text-decoration: underline;
         }
-        .instructions { 
-            font-style: italic; 
-            color: #7f8c8d; 
+
+        .instructions {
+            font-style: italic;
+            color: #7f8c8d;
             margin-bottom: 15px;
         }
+
         .action-buttons {
             display: flex;
             gap: 10px;
             margin-top: 20px;
         }
+
         .btn {
             flex: 1;
             padding: 12px;
@@ -160,10 +226,23 @@
             font-weight: bold;
             transition: 0.3s;
         }
-        .check-btn { background-color: #27ae60; }
-        .check-btn:hover { background-color: #2ecc71; }
-        .shuffle-btn { background-color: #f39c12; }
-        .shuffle-btn:hover { background-color: #f1c40f; color: #333; }
+
+        .check-btn {
+            background-color: #27ae60;
+        }
+
+            .check-btn:hover {
+                background-color: #2ecc71;
+            }
+
+        .shuffle-btn {
+            background-color: #f39c12;
+        }
+
+            .shuffle-btn:hover {
+                background-color: #f1c40f;
+                color: #333;
+            }
     </style>
 </head>
 <body>
@@ -180,7 +259,8 @@
 
     <!-- BLOK 1 -->
     <div id="Blok1" class="tabcontent">
-        <div class="rules-box">
+        <button class="rules-toggle" onclick="toggleRules('rules-blok1', this)">📖 Pokaż zasady</button>
+        <div id="rules-blok1" class="rules-box">
             <h3>📖 BLOK 1 - Rosyjskie Haki:</h3>
             <ul>
                 <li><b>Słowo NIE i DO:</b> Wymusza Dopełniacz (Kogo? Чего?). Zaimki: <i>tej, tego</i>. (Uwaga fonetyka: k/g+i -> <i>wielkiej, polskiej</i>).</li>
@@ -199,7 +279,8 @@
 
     <!-- BLOK 2 -->
     <div id="Blok2" class="tabcontent">
-        <div class="rules-box">
+        <button class="rules-toggle" onclick="toggleRules('rules-blok2', this)">📖 Pokaż zasady</button>
+        <div id="rules-blok2" class="rules-box">
             <h3>📖 BLOK 2 - Rosyjskie Haki:</h3>
             <ul>
                 <li><b>Wskaźnik "NIŻ" (чем):</b> Wymusza stopień 2 (wyższy). Np. <i>szybszy, droższy, lepiej, gorzej</i>.</li>
@@ -218,7 +299,8 @@
 
     <!-- BLOK 3 -->
     <div id="Blok3" class="tabcontent">
-        <div class="rules-box">
+        <button class="rules-toggle" onclick="toggleRules('rules-blok3', this)">📖 Pokaż zasady</button>
+        <div id="rules-blok3" class="rules-box">
             <h3>📖 BLOK 3 - Rosyjskie Haki (Czas przyszły i trudne odmiany):</h3>
             <ul>
                 <li><b>Rezultat (сделаю):</b> Sam czasownik BEZ "będzie" -> <i>zrobię, sprawdzi, napiszemy, zacznie</i>.</li>
@@ -238,7 +320,8 @@
 
     <!-- BLOK 4 -->
     <div id="Blok4" class="tabcontent">
-        <div class="rules-box">
+        <button class="rules-toggle" onclick="toggleRules('rules-blok4', this)">📖 Pokaż zasady</button>
+        <div id="rules-blok4" class="rules-box">
             <h3>📖 BLOK 4 - Rosyjskie Haki (Przyimki / Rekcja):</h3>
             <ul>
                 <li><b>TĘSKNIĆ + ZA</b> (Narzędnik): Tęsknię <b>za</b> tobą. (RU: скучаю <b>по</b> тебе - INNY przyimek!)</li>
@@ -261,7 +344,8 @@
 
     <!-- BLOK 5 -->
     <div id="Blok5" class="tabcontent">
-        <div class="rules-box">
+        <button class="rules-toggle" onclick="toggleRules('rules-blok5', this)">📖 Pokaż zasady</button>
+        <div id="rules-blok5" class="rules-box">
             <h3>📖 BLOK 5 - Rosyjskie Haki (Czas przeszły):</h3>
             <ul>
                 <li><b>JA (mężczyzna):</b> делал + <b>em</b> = robił<b>em</b>, pisał<b>em</b>, czytał<b>em</b></li>
@@ -377,7 +461,7 @@
             { q: "Mechanik w piątek (naprawić) twój samochód.", a: "naprawi" }
         ];
 
-        // BAZA PYTAŃ - BLOK 4 (Przyimki) - POPRAWIONA
+        // BAZA PYTAŃ - BLOK 4 (Przyimki)
         const poolBlok4 = [
             { q: "Każdego dnia rano czekam 15 minut (...) autobus do pracy.", a: "na" },
             { q: "Po wyjeździe do Londynu bardzo tęskniłem (...) polskim jedzeniem.", a: "za" },
@@ -444,10 +528,23 @@
         let currentQuestionsBlok4 = [];
         let currentQuestionsBlok5 = [];
 
+        function toggleRules(rulesId, button) {
+            const rulesBox = document.getElementById(rulesId);
+            if (rulesBox.classList.contains('visible')) {
+                rulesBox.classList.remove('visible');
+                button.textContent = '📖 Pokaż zasady';
+                button.classList.remove('active');
+            } else {
+                rulesBox.classList.add('visible');
+                button.textContent = '📕 Ukryj zasady';
+                button.classList.add('active');
+            }
+        }
+
         function loadRandomQuestions(containerId, pool) {
             let shuffled = [...pool].sort(() => 0.5 - Math.random());
             let selected = shuffled.slice(0, 10);
-            
+
             if (containerId === 'quiz-blok1') currentQuestionsBlok1 = selected;
             else if (containerId === 'quiz-blok2') currentQuestionsBlok2 = selected;
             else if (containerId === 'quiz-blok3') currentQuestionsBlok3 = selected;
@@ -456,13 +553,13 @@
 
             const container = document.getElementById(containerId);
             container.innerHTML = '';
-            
+
             selected.forEach((item, index) => {
                 const div = document.createElement('div');
                 div.className = 'question';
-                
+
                 const questionText = item.q.replace(/\((.*?)\)/, `<span class="hint">($1)</span> <input type="text" id="${containerId}-q${index}" autocomplete="off" spellcheck="false">`);
-                
+
                 div.innerHTML = `<b>${index + 1}.</b> ${questionText} <span id="${containerId}-fb${index}" class="feedback"></span>`;
                 container.appendChild(div);
             });
@@ -507,14 +604,14 @@
             else if (containerId === 'quiz-blok3') currentQuestions = currentQuestionsBlok3;
             else if (containerId === 'quiz-blok4') currentQuestions = currentQuestionsBlok4;
             else if (containerId === 'quiz-blok5') currentQuestions = currentQuestionsBlok5;
-            
+
             let score = 0;
             let total = currentQuestions.length;
 
             currentQuestions.forEach((item, index) => {
                 const input = document.getElementById(`${containerId}-q${index}`);
                 const feedback = document.getElementById(`${containerId}-fb${index}`);
-                
+
                 const userAnswer = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
                 const correctAnswer = item.a.toLowerCase().replace(/\s+/g, ' ');
 
@@ -524,32 +621,32 @@
                     score++;
                 } else {
                     input.className = 'incorrect';
-                    
+
                     if (userAnswer === "") {
                         feedback.innerHTML = `<div class="feedback-details">
-                            Poprawnie: <b>${correctAnswer}</b>
-                        </div>`;
+                                Poprawnie: <b>${correctAnswer}</b>
+                            </div>`;
                     } else {
                         const diffs = generateDiff(correctAnswer, userAnswer);
                         feedback.innerHTML = `
-                        <div class="feedback-details">
-                            <span style="color:#7f8c8d; font-size:13px;">Twoja odp.:</span> ${diffs.userHTML}<br>
-                            <span style="color:#7f8c8d; font-size:13px;">Poprawnie:</span> ${diffs.correctHTML}
-                        </div>`;
+                            <div class="feedback-details">
+                                <span style="color:#7f8c8d; font-size:13px;">Twoja odp.:</span> ${diffs.userHTML}<br>
+                                <span style="color:#7f8c8d; font-size:13px;">Poprawnie:</span> ${diffs.correctHTML}
+                            </div>`;
                     }
                 }
             });
 
             if (score === total) {
                 alert(`Twój wynik: ${score} / ${total} punktów!\n\nGratulacje! 🏆 Masz 100% poprawnych odpowiedzi.\nKliknij OK, aby wylosować nowy zestaw zadań.`);
-                
+
                 let pool;
                 if (containerId === 'quiz-blok1') pool = poolBlok1;
                 else if (containerId === 'quiz-blok2') pool = poolBlok2;
                 else if (containerId === 'quiz-blok3') pool = poolBlok3;
                 else if (containerId === 'quiz-blok4') pool = poolBlok4;
                 else if (containerId === 'quiz-blok5') pool = poolBlok5;
-                
+
                 loadRandomQuestions(containerId, pool);
             } else {
                 alert(`Twój wynik: ${score} / ${total} punktów.\n\nMasz błędy. Przeanalizuj to, co podkreślone na czerwono, popraw i sprawdź jeszcze raz!`);
@@ -569,7 +666,7 @@
             evt.currentTarget.className += " active";
         }
 
-        window.onload = function() {
+        window.onload = function () {
             loadRandomQuestions('quiz-blok1', poolBlok1);
             loadRandomQuestions('quiz-blok2', poolBlok2);
             loadRandomQuestions('quiz-blok3', poolBlok3);
