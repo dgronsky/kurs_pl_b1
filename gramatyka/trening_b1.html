@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trening Gramatyki B1 - Rosyjskie Haki</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        /* Style dla zakładek (Tabs) */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #e0e0e0;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+        }
+        .tab button {
+            background-color: inherit;
+            flex: 1;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .tab button:hover {
+            background-color: #d1d1d1;
+        }
+        .tab button.active {
+            background-color: #fff;
+            border-bottom: 3px solid #3498db;
+            color: #3498db;
+        }
+        /* Zawartość zakładek */
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            background-color: #fff;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .rules-box {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        .rules-box h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        /* Quiz */
+        .question {
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.8;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+        .hint {
+            color: #2980b9;
+            font-weight: bold;
+            background-color: #ebf5fb;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            width: 260px;
+            transition: 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        .correct {
+            border-color: #27ae60 !important;
+            background-color: #eafaf1;
+        }
+        .incorrect {
+            border-color: #e74c3c !important;
+            background-color: #fceceb;
+        }
+        
+        /* Zaawansowany Feedback i podświetlanie błędów */
+        .feedback {
+            display: block;
+            margin-top: 8px;
+            font-weight: normal;
+        }
+        .correct-text { 
+            color: #27ae60; 
+            font-weight: bold;
+        }
+        .incorrect-text { 
+            color: #e74c3c; 
+        }
+        .feedback-details {
+            background-color: #fff;
+            border: 1px solid #ffcccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 15px;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(231,76,60,0.1);
+        }
+        .diff-error {
+            background-color: #ffcccc;
+            color: #c0392b;
+            text-decoration: line-through;
+            font-weight: bold;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        .diff-correct {
+            background-color: #d5f5e3;
+            color: #27ae60;
+            font-weight: bold;
+            padding: 0 2px;
+            border-radius: 2px;
+            text-decoration: underline;
+        }
+        .instructions { font-style: italic; color: #7f8c8d; margin-bottom: 15px;}
+        
+        /* Przyciski Akcji */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .btn {
+            flex: 1;
+            padding: 12px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .check-btn { background-color: #27ae60; }
+        .check-btn:hover { background-color: #2ecc71; }
+        
+        .shuffle-btn { background-color: #f39c12; }
+        .shuffle-btn:hover { background-color: #f1c40f; color: #333; }
+    </style>
+</head>
+<body>
+
+    <h1>Trening Gramatyki B1 🇵🇱</h1>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Blok1')" id="defaultOpen">BLOK 1: Aspekt i Przypadki</button>
+        <button class="tablinks" onclick="openTab(event, 'Blok2')">BLOK 2: Stopniowanie</button>
+    </div>
+
+    <!-- BLOK 1 -->
+    <div id="Blok1" class="tabcontent">
+        <div class="rules-box">
+            <h3>📖 BLOK 1 - Rosyjskie Haki:</h3>
+            <ul>
+                <li><b>Czas przyszły:</b> Rezultat (сделаю) -> samo słowo bez "będzie" (np. <i>zrobię, sprawdzi, napiszemy</i>). Proces (буду делать) -> <i>będę robić, będą pracować</i>.</li>
+                <li><b>Słowo NIE i DO:</b> Wymusza Dopełniacz (Kogo? Чего?). Zaimki: <i>tej, tego</i>. (Uwaga fonetyka: k/g+i -> <i>wielkiej, polskiej</i>).</li>
+                <li><b>Zawód / Z kim?:</b> Narzędnik (Творительный). Kobiety <b>-ą, -ą</b>. Mężczyźni <b>-ym/-em</b> (Mężczyźni na "A" to pułapka: <i>świetnym dentystą, kolegą</i>).</li>
+                <li><b>Biernik (widzę, mam, piję, w środę):</b> Dla rodzaju żeńskiego (ona): Przymiotnik <b>-ą</b>, rzeczownik <b>-ę</b>. Zaimek "ta" -> <b>tę</b>.</li>
+                <li><b>Znam vs Wiem:</b> <i>Znam</i> człowieka/rzecz. <i>Wiem</i> fakt (gdzie, kto, że). Odmiana oni: <i>znają / wiedzą</i>.</li>
+            </ul>
+        </div>
+        
+        <div class="instructions">Wpisz poprawną formę. Używaj polskich znaków (ą, ę, ł, ś, ć). Test losuje 10 zdań z dużej bazy.</div>
+        <div id="quiz-blok1"></div>
+        
+        <div class="action-buttons">
+            <button class="btn check-btn" onclick="checkAnswers('quiz-blok1')">✔ Sprawdź odpowiedzi</button>
+            <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok1', poolBlok1)">🔄 Losuj nowe pytania (bez sprawdzania)</button>
+        </div>
+    </div>
+
+    <!-- BLOK 2 -->
+    <div id="Blok2" class="tabcontent">
+        <div class="rules-box">
+            <h3>📖 BLOK 2 - Rosyjskie Haki:</h3>
+            <ul>
+                <li><b>Wskaźnik "NIŻ" (чем):</b> Wymusza stopień 2 (wyższy). Np. <i>szybszy, droższy, lepiej, gorzej</i>.</li>
+                <li><b>Wskaźnik "CORAZ" (всё более):</b> Wymusza stopień 2 (wyższy). Np. <i>droższe, częściej, szybciej</i>.</li>
+                <li><b>Wskaźnik "W CAŁYM / ZE WSZYSTKICH" (из всех):</b> Dominacja. Wymusza stopień 3 z przedrostkiem <b>naj-</b>. Np. <i>najlepszy, najszybciej, najgorsza</i>.</li>
+                <li><b>Nieregularne:</b> dobry-lepszy-najlepszy, zły-gorszy-najgorszy, duży-większy-największy, dobrze-lepiej-najlepiej, źle-gorzej-najgorzej, dużo-więcej-najwięcej.</li>
+            </ul>
+        </div>
+
+        <div class="instructions">Zidentyfikuj wskaźnik i wpisz JEDNO słowo wybrane z nawiasu. Test losuje 10 zdań z dużej bazy.</div>
+        <div id="quiz-blok2"></div>
+        
+        <div class="action-buttons">
+            <button class="btn check-btn" onclick="checkAnswers('quiz-blok2')">✔ Sprawdź odpowiedzi</button>
+            <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok2', poolBlok2)">🔄 Losuj nowe pytania (bez sprawdzania)</button>
+        </div>
+    </div>
+
+    <script>
+        // BAZA PYTAŃ - BLOK 1
+        const poolBlok1 = [
+            { q: "Czy dyrektor jutro na pewno (sprawdzić) te dokumenty?", a: "sprawdzi" },
+            { q: "Niestety nie piję (ta gorąca kawa).", a: "tej gorącej kawy" },
+            { q: "Wczoraj rozmawiałem z (mój nowy dentysta).", a: "moim nowym dentystą" },
+            { q: "Codziennie rano czytam (ta ciekawa gazeta).", a: "tę ciekawą gazetę" },
+            { q: "Wszyscy nowi pracownicy (wiedzieć), co robić.", a: "wiedzą" },
+            { q: "Idziemy dzisiaj do (ta nowa klinika).", a: "tej nowej kliniki" },
+            { q: "Moja siostra jest (świetna nauczycielka).", a: "świetną nauczycielką" },
+            { q: "Egzamin państwowy mam w najbliższą (sobota).", a: "sobotę" },
+            { q: "Ona w ogóle nie słucha (polska muzyka).", a: "polskiej muzyki" },
+            { q: "Czy my do jutra na pewno to (napisać)?", a: "napiszemy" },
+            { q: "Niestety nie mamy w biurze (żadna nowa drukarka).", a: "żadnej nowej drukarki" },
+            { q: "Zawsze rano piję (ta zimna woda).", a: "tę zimną wodę" },
+            { q: "Czy twoi znajomi (znać) mojego szefa?", a: "znają" },
+            { q: "Moi sąsiedzi w weekend będą (cały czas słuchać) muzyki.", a: "cały czas słuchać" },
+            { q: "Wczoraj w sklepie kupiłem (ta wspaniała gra) planszowa.", a: "tę wspaniałą grę" },
+            { q: "Niestety w domu nie mam (ta wspaniała gra).", a: "tej wspaniałej gry" },
+            { q: "Mój starszy brat jest (bardzo dobry lekarz).", a: "bardzo dobrym lekarzem" },
+            { q: "Spotkanie organizacyjne odbędzie się w (przyszła środa).", a: "przyszłą środę" },
+            { q: "Idziemy na kolację do (ta wielka restauracja).", a: "tej wielkiej restauracji" },
+            { q: "Dzisiaj wieczorem mój mąż (zrobić) zakupy.", a: "zrobi" },
+            { q: "Zaraz idę do kina z (mój najlepszy przyjaciel).", a: "moim najlepszym przyjacielem" },
+            { q: "W szafie mam (bardzo ładna koszula).", a: "bardzo ładną koszulę" },
+            { q: "W weekend moi znajomi (często pracować) nad projektem.", a: "będą często pracować" },
+            { q: "Dlaczego ty nigdy nie czytasz (ta lokalna gazeta)?", a: "tej lokalnej gazety" },
+            { q: "Zawsze chciałem być (świetny artysta).", a: "świetnym artystą" },
+            { q: "Mali chłopcy jeszcze nie (wiedzieć), jak to działa.", a: "wiedzą" },
+            { q: "Muszę iść do (najbliższa apteka).", a: "najbliższej apteki" }
+        ];
+
+        // BAZA PYTAŃ - BLOK 2
+        const poolBlok2 = [
+            { q: "Ten telefon jest o wiele (drogi / droższy / najdroższy) niż tamten.", a: "droższy" },
+            { q: "Ceny paliwa rosną coraz (szybko / szybciej / najszybciej).", a: "szybciej" },
+            { q: "To (zła / gorsza / najgorsza) zupa ze wszystkich w restauracji.", a: "najgorsza" },
+            { q: "Po tabletkach dziadek czuje się coraz (źle / gorzej / najgorzej).", a: "gorzej" },
+            { q: "Mój brat uczy się matematyki (dobrze / lepiej / najlepiej) w całej klasie.", a: "najlepiej" },
+            { q: "Warszawa to (duże / większe / największe) miasto w Polsce.", a: "największe" },
+            { q: "Zarabiam (dużo / więcej / najwięcej) niż mój kolega z biura.", a: "więcej" },
+            { q: "To (ciekawa / ciekawsza / najciekawsza) książka w całej bibliotece.", a: "najciekawsza" },
+            { q: "Dni są znacznie (krótko / krócej / najkrócej) zimą niż latem.", a: "krócej" },
+            { q: "Czuję się dzisiaj o wiele (dobrze / lepiej / najlepiej) niż wczoraj.", a: "lepiej" },
+            { q: "Owoce na targu są znacznie (świeże / świeższe / najświeższe) niż te w supermarkecie.", a: "świeższe" },
+            { q: "Krystyna to (zdolna / zdolniejsza / najzdolniejsza) studentka ze wszystkich na uniwersytecie.", a: "najzdolniejsza" },
+            { q: "Z powodu inflacji jedzenie w sklepach jest coraz (drogie / droższe / najdroższe).", a: "droższe" },
+            { q: "Obecnie ludzie kupują przez internet coraz (często / częściej / najczęściej).", a: "częściej" },
+            { q: "Według statystyk, samolot to (bezpieczny / bezpieczniejszy / najbezpieczniejszy) transport na świecie.", a: "najbezpieczniejszy" },
+            { q: "Z całej grupy sportowej to właśnie on biega (szybko / szybciej / najszybciej).", a: "najszybciej" },
+            { q: "Podpisałem umowę na (mały / mniejszy / najmniejszy) pokój w całym akademiku.", a: "najmniejszy" },
+            { q: "Elektronika z tego sklepu jest zazwyczaj (tania / tańsza / najtańsza) niż w salonie.", a: "tańsza" },
+            { q: "W tym roku nasza firma zarobiła o wiele (dużo / więcej / najwięcej) niż w zeszłym.", a: "więcej" },
+            { q: "To bez wątpienia (smaczna / smaczniejsza / najsmaczniejsza) pizza, jaką w życiu jadłem.", a: "najsmaczniejsza" },
+            { q: "Mój stary samochód był o wiele (wolny / wolniejszy / najwolniejszy) niż ten nowy.", a: "wolniejszy" },
+            { q: "Kupiłem (tani / tańszy / najtańszy) bilet ze wszystkich w kasie.", a: "najtańszy" },
+            { q: "Sytuacja gospodarcza staje się z każdym rokiem coraz (trudna / trudniejsza / najtrudniejsza).", a: "trudniejsza" },
+            { q: "Ten egzamin był o wiele (trudny / trudniejszy / najtrudniejszy) niż poprzedni.", a: "trudniejszy" },
+            { q: "Moja mama gotuje (smacznie / smaczniej / najsmaczniej) ze wszystkich osób, które znam.", a: "najsmaczniej" }
+        ];
+
+        let currentQuestionsBlok1 = [];
+        let currentQuestionsBlok2 = [];
+
+        function loadRandomQuestions(containerId, pool) {
+            let shuffled = [...pool].sort(() => 0.5 - Math.random());
+            let selected = shuffled.slice(0, 10);
+            
+            if (containerId === 'quiz-blok1') currentQuestionsBlok1 = selected;
+            else currentQuestionsBlok2 = selected;
+
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            selected.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'question';
+                
+                const questionText = item.q.replace(/\((.*?)\)/, `<span class="hint">($1)</span> <input type="text" id="${containerId}-q${index}" autocomplete="off" spellcheck="false">`);
+                
+                div.innerHTML = `<b>${index + 1}.</b> ${questionText} <span id="${containerId}-fb${index}" class="feedback"></span>`;
+                container.appendChild(div);
+            });
+        }
+
+        // ALGORYTM DIFF
+        function generateDiff(correctStr, userStr) {
+            const dp = Array(userStr.length + 1).fill(null).map(() => Array(correctStr.length + 1).fill(0));
+            for (let i = 1; i <= userStr.length; i++) {
+                for (let j = 1; j <= correctStr.length; j++) {
+                    if (userStr[i - 1] === correctStr[j - 1]) {
+                        dp[i][j] = dp[i - 1][j - 1] + 1;
+                    } else {
+                        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                    }
+                }
+            }
+            let i = userStr.length;
+            let j = correctStr.length;
+            let userHTML = "";
+            let correctHTML = "";
+
+            while (i > 0 || j > 0) {
+                if (i > 0 && j > 0 && userStr[i - 1] === correctStr[j - 1]) {
+                    userHTML = userStr[i - 1] + userHTML;
+                    correctHTML = correctStr[j - 1] + correctHTML;
+                    i--; j--;
+                } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+                    correctHTML = `<span class="diff-correct">${correctStr[j - 1]}</span>` + correctHTML;
+                    j--;
+                } else if (i > 0 && (j === 0 || dp[i][j - 1] < dp[i - 1][j])) {
+                    userHTML = `<span class="diff-error">${userStr[i - 1]}</span>` + userHTML;
+                    i--;
+                }
+            }
+            return { userHTML, correctHTML };
+        }
+
+        function checkAnswers(containerId) {
+            const currentQuestions = containerId === 'quiz-blok1' ? currentQuestionsBlok1 : currentQuestionsBlok2;
+            let score = 0;
+            let total = currentQuestions.length;
+
+            currentQuestions.forEach((item, index) => {
+                const input = document.getElementById(`${containerId}-q${index}`);
+                const feedback = document.getElementById(`${containerId}-fb${index}`);
+                
+                const userAnswer = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+                const correctAnswer = item.a.toLowerCase().replace(/\s+/g, ' ');
+
+                if (userAnswer === correctAnswer) {
+                    input.className = 'correct';
+                    feedback.innerHTML = '<span class="correct-text">✔ Idealnie!</span>';
+                    score++;
+                } else {
+                    input.className = 'incorrect';
+                    
+                    if (userAnswer === "") {
+                        feedback.innerHTML = `<div class="feedback-details">
+                            Poprawnie: <b>${correctAnswer}</b>
+                        </div>`;
+                    } else {
+                        const diffs = generateDiff(correctAnswer, userAnswer);
+                        feedback.innerHTML = `
+                        <div class="feedback-details">
+                            <span style="color:#7f8c8d; font-size:13px;">Twoja odp.:</span> ${diffs.userHTML}<br>
+                            <span style="color:#7f8c8d; font-size:13px;">Poprawnie:</span> ${diffs.correctHTML}
+                        </div>`;
+                    }
+                }
+            });
+
+            // LOGIKA AUTOMATYCZNEGO LOSOWANIA PO 100%
+            if (score === total) {
+                alert(`Twój wynik: ${score} / ${total} punktów!\n\nGratulacje! 🏆 Masz 100% poprawnych odpowiedzi.\nKliknij OK, aby wylosować nowy zestaw zadań.`);
+                
+                // Ustalenie odpowiedniej puli pytań dla danego bloku
+                const pool = containerId === 'quiz-blok1' ? poolBlok1 : poolBlok2;
+                
+                // Automatyczne załadowanie nowych pytań
+                loadRandomQuestions(containerId, pool);
+            } else {
+                alert(`Twój wynik: ${score} / ${total} punktów.\n\nMasz błędy. Przeanalizuj to, co podkreślone na czerwono, popraw i sprawdź jeszcze raz!`);
+            }
+        }
+
+        function openTab(evt, tabName) {
+            const tabcontent = document.getElementsByClassName("tabcontent");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            const tablinks = document.getElementsByClassName("tablinks");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        window.onload = function() {
+            loadRandomQuestions('quiz-blok1', poolBlok1);
+            loadRandomQuestions('quiz-blok2', poolBlok2);
+            document.getElementById("defaultOpen").click();
+        };
+    </script>
+</body>
+</html>
