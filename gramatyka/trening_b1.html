@@ -17,13 +17,13 @@
             text-align: center;
             color: #2c3e50;
         }
-        /* Style dla zakładek (Tabs) */
         .tab {
             overflow: hidden;
             border: 1px solid #ccc;
             background-color: #e0e0e0;
             border-radius: 8px 8px 0 0;
             display: flex;
+            flex-wrap: wrap;
         }
         .tab button {
             background-color: inherit;
@@ -31,10 +31,11 @@
             border: none;
             outline: none;
             cursor: pointer;
-            padding: 14px 16px;
+            padding: 14px 10px;
             transition: 0.3s;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
+            min-width: 120px;
         }
         .tab button:hover {
             background-color: #d1d1d1;
@@ -44,7 +45,6 @@
             border-bottom: 3px solid #3498db;
             color: #3498db;
         }
-        /* Zawartość zakładek */
         .tabcontent {
             display: none;
             padding: 20px;
@@ -66,7 +66,6 @@
             margin-top: 0;
             color: #2980b9;
         }
-        /* Quiz */
         .question {
             margin-bottom: 25px;
             font-size: 16px;
@@ -102,8 +101,6 @@
             border-color: #e74c3c !important;
             background-color: #fceceb;
         }
-        
-        /* Zaawansowany Feedback i podświetlanie błędów */
         .feedback {
             display: block;
             margin-top: 8px;
@@ -142,9 +139,11 @@
             border-radius: 2px;
             text-decoration: underline;
         }
-        .instructions { font-style: italic; color: #7f8c8d; margin-bottom: 15px;}
-        
-        /* Przyciski Akcji */
+        .instructions { 
+            font-style: italic; 
+            color: #7f8c8d; 
+            margin-bottom: 15px;
+        }
         .action-buttons {
             display: flex;
             gap: 10px;
@@ -163,7 +162,6 @@
         }
         .check-btn { background-color: #27ae60; }
         .check-btn:hover { background-color: #2ecc71; }
-        
         .shuffle-btn { background-color: #f39c12; }
         .shuffle-btn:hover { background-color: #f1c40f; color: #333; }
     </style>
@@ -173,8 +171,11 @@
     <h1>Trening Gramatyki B1 🇵🇱</h1>
 
     <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'Blok1')" id="defaultOpen">BLOK 1: Aspekt i Przypadki</button>
+        <button class="tablinks" onclick="openTab(event, 'Blok1')" id="defaultOpen">BLOK 1: Przypadki</button>
         <button class="tablinks" onclick="openTab(event, 'Blok2')">BLOK 2: Stopniowanie</button>
+        <button class="tablinks" onclick="openTab(event, 'Blok3')">BLOK 3: Czas przyszły</button>
+        <button class="tablinks" onclick="openTab(event, 'Blok4')">BLOK 4: Przyimki</button>
+        <button class="tablinks" onclick="openTab(event, 'Blok5')">BLOK 5: Czas przeszły</button>
     </div>
 
     <!-- BLOK 1 -->
@@ -182,20 +183,17 @@
         <div class="rules-box">
             <h3>📖 BLOK 1 - Rosyjskie Haki:</h3>
             <ul>
-                <li><b>Czas przyszły:</b> Rezultat (сделаю) -> samo słowo bez "będzie" (np. <i>zrobię, sprawdzi, napiszemy</i>). Proces (буду делать) -> <i>będę robić, będą pracować</i>.</li>
                 <li><b>Słowo NIE i DO:</b> Wymusza Dopełniacz (Kogo? Чего?). Zaimki: <i>tej, tego</i>. (Uwaga fonetyka: k/g+i -> <i>wielkiej, polskiej</i>).</li>
                 <li><b>Zawód / Z kim?:</b> Narzędnik (Творительный). Kobiety <b>-ą, -ą</b>. Mężczyźni <b>-ym/-em</b> (Mężczyźni na "A" to pułapka: <i>świetnym dentystą, kolegą</i>).</li>
                 <li><b>Biernik (widzę, mam, piję, w środę):</b> Dla rodzaju żeńskiego (ona): Przymiotnik <b>-ą</b>, rzeczownik <b>-ę</b>. Zaimek "ta" -> <b>tę</b>.</li>
                 <li><b>Znam vs Wiem:</b> <i>Znam</i> człowieka/rzecz. <i>Wiem</i> fakt (gdzie, kto, że). Odmiana oni: <i>znają / wiedzą</i>.</li>
             </ul>
         </div>
-        
         <div class="instructions">Wpisz poprawną formę. Używaj polskich znaków (ą, ę, ł, ś, ć). Test losuje 10 zdań z dużej bazy.</div>
         <div id="quiz-blok1"></div>
-        
         <div class="action-buttons">
             <button class="btn check-btn" onclick="checkAnswers('quiz-blok1')">✔ Sprawdź odpowiedzi</button>
-            <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok1', poolBlok1)">🔄 Losuj nowe pytania (bez sprawdzania)</button>
+            <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok1', poolBlok1)">🔄 Losuj nowe pytania</button>
         </div>
     </div>
 
@@ -206,24 +204,91 @@
             <ul>
                 <li><b>Wskaźnik "NIŻ" (чем):</b> Wymusza stopień 2 (wyższy). Np. <i>szybszy, droższy, lepiej, gorzej</i>.</li>
                 <li><b>Wskaźnik "CORAZ" (всё более):</b> Wymusza stopień 2 (wyższy). Np. <i>droższe, częściej, szybciej</i>.</li>
-                <li><b>Wskaźnik "W CAŁYM / ZE WSZYSTKICH" (из всех):</b> Dominacja. Wymusza stopień 3 z przedrostkiem <b>naj-</b>. Np. <i>najlepszy, najszybciej, najgorsza</i>.</li>
+                <li><b>Wskaźnik "W CAŁYM / ZE WSZYSTKICH" (из всех):</b> Dominacja. Wymusza stopień 3 z przedrostkiem <b>naj-</b>.</li>
                 <li><b>Nieregularne:</b> dobry-lepszy-najlepszy, zły-gorszy-najgorszy, duży-większy-największy, dobrze-lepiej-najlepiej, źle-gorzej-najgorzej, dużo-więcej-najwięcej.</li>
             </ul>
         </div>
-
         <div class="instructions">Zidentyfikuj wskaźnik i wpisz JEDNO słowo wybrane z nawiasu. Test losuje 10 zdań z dużej bazy.</div>
         <div id="quiz-blok2"></div>
-        
         <div class="action-buttons">
             <button class="btn check-btn" onclick="checkAnswers('quiz-blok2')">✔ Sprawdź odpowiedzi</button>
-            <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok2', poolBlok2)">🔄 Losuj nowe pytania (bez sprawdzania)</button>
+            <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok2', poolBlok2)">🔄 Losuj nowe pytania</button>
+        </div>
+    </div>
+
+    <!-- BLOK 3 -->
+    <div id="Blok3" class="tabcontent">
+        <div class="rules-box">
+            <h3>📖 BLOK 3 - Rosyjskie Haki (Czas przyszły i trudne odmiany):</h3>
+            <ul>
+                <li><b>Rezultat (сделаю):</b> Sam czasownik BEZ "będzie" -> <i>zrobię, sprawdzi, napiszemy, zacznie</i>.</li>
+                <li><b>Proces (буду делать):</b> "Będzie" + bezokolicznik -> <i>będę robić, będą pracować, będziemy odwiedzać</i>.</li>
+                <li><b>Czasowniki na "-ĄĆ" (zacząć, wziąć):</b> JA = <b>-ę</b> (bez "i"!): <i>zacznę, wezmę</i>. ON/ONA = <b>-ie</b>: <i>zacznie, weźmie</i>.</li>
+                <li><b>Czasowniki na "-NIĆ" (tęsknić, dzwonić):</b> JA = <b>-nię</b> (z "i"!): <i>tęsknię, dzwonię</i>. ON/ONA = <b>-ni</b> (bez "e"!): <i>tęskni, dzwoni</i>. ONI = <b>-nią</b>: <i>tęsknią, dzwonią</i>.</li>
+                <li><b>Czasowniki na "-IĆ" (martwić się, robić):</b> ONI = <b>-ią</b> (z "i"!): <i>martwią się, robią</i>.</li>
+            </ul>
+        </div>
+        <div class="instructions">Wpisz poprawną formę czasownika. Zwróć uwagę na aspekt (proces/rezultat) oraz końcówki osobowe.</div>
+        <div id="quiz-blok3"></div>
+        <div class="action-buttons">
+            <button class="btn check-btn" onclick="checkAnswers('quiz-blok3')">✔ Sprawdź odpowiedzi</button>
+            <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok3', poolBlok3)">🔄 Losuj nowe pytania</button>
+        </div>
+    </div>
+
+    <!-- BLOK 4 -->
+    <div id="Blok4" class="tabcontent">
+        <div class="rules-box">
+            <h3>📖 BLOK 4 - Rosyjskie Haki (Przyimki / Rekcja):</h3>
+            <ul>
+                <li><b>TĘSKNIĆ + ZA</b> (Narzędnik): Tęsknię <b>za</b> tobą. (RU: скучаю <b>по</b> тебе - INNY przyimek!)</li>
+                <li><b>CZEKAĆ + NA</b> (Biernik): Czekam <b>na</b> autobus. (RU: жду автобус - BRAK przyimka!)</li>
+                <li><b>MARTWIĆ SIĘ + O</b> (Biernik): Martwię się <b>o</b> ciebie. (RU: волнуюсь <b>за</b> тебя - INNY przyimek!)</li>
+                <li><b>PYTAĆ / PROSIĆ + O</b> (Biernik): Pytam <b>o</b> drogę. Proszę <b>o</b> pomoc.</li>
+                <li><b>ZASTANAWIAĆ SIĘ + NAD</b> (Narzędnik): Zastanawiam się <b>nad</b> problemem.</li>
+                <li><b>DLA</b> (Dopełniacz): Prezent <b>dla</b> mamy. (Przeznaczenie)</li>
+                <li><b>PRZEZ</b> (Biernik): Idę <b>przez</b> park. / Spóźniłem się <b>przez</b> korki. (Droga lub przyczyna)</li>
+                <li><b>OD</b> (Dopełniacz): List <b>od</b> brata. Pracuję <b>od</b> poniedziałku. (Pochodzenie lub punkt w czasie)</li>
+            </ul>
+        </div>
+        <div class="instructions">Wpisz odpowiedni przyimek (za, na, o, nad, dla, przez, od). Zidentyfikuj czasownik lub kontekst.</div>
+        <div id="quiz-blok4"></div>
+        <div class="action-buttons">
+            <button class="btn check-btn" onclick="checkAnswers('quiz-blok4')">✔ Sprawdź odpowiedzi</button>
+            <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok4', poolBlok4)">🔄 Losuj nowe pytania</button>
+        </div>
+    </div>
+
+    <!-- BLOK 5 -->
+    <div id="Blok5" class="tabcontent">
+        <div class="rules-box">
+            <h3>📖 BLOK 5 - Rosyjskie Haki (Czas przeszły):</h3>
+            <ul>
+                <li><b>JA (mężczyzna):</b> делал + <b>em</b> = robił<b>em</b>, pisał<b>em</b>, czytał<b>em</b></li>
+                <li><b>JA (kobieta):</b> делала + <b>am</b> = robił<b>am</b>, pisał<b>am</b>, czytał<b>am</b></li>
+                <li><b>TY (mężczyzna):</b> делал + <b>eś</b> = robił<b>eś</b>, pisał<b>eś</b></li>
+                <li><b>TY (kobieta):</b> делала + <b>aś</b> = robił<b>aś</b>, pisał<b>aś</b></li>
+                <li><b>ON / ONA:</b> Identycznie jak w rosyjskim: <i>robił / robiła, pisał / pisała</i></li>
+                <li><b>MY (mężczyźni/miks):</b> robi<b>liśmy</b>, pisa<b>liśmy</b> (z literą <b>L</b>)</li>
+                <li><b>MY (kobiety):</b> robi<b>łyśmy</b>, pisa<b>łyśmy</b> (z literą <b>Ł</b>)</li>
+                <li><b>WY (mężczyźni/miks):</b> robi<b>liście</b>, pisa<b>liście</b></li>
+                <li><b>WY (kobiety):</b> robi<b>łyście</b>, pisa<b>łyście</b></li>
+                <li><b>ONI:</b> robili, pisali (męskoosobowa z <b>L</b>)</li>
+                <li><b>ONE:</b> robiły, pisały (niemęskoosobowa z <b>Ł</b>)</li>
+                <li><b>⚠️ PUŁAPKA "PÓJŚĆ / IŚĆ":</b> MY = po<b>szli</b>śmy (NIGDY: poszedliśmy!), WY = po<b>szli</b>ście, ONI = po<b>szli</b></li>
+            </ul>
+        </div>
+        <div class="instructions">Wpisz poprawną formę czasu przeszłego. Zwróć uwagę na płeć osoby/grupy oraz końcówki osobowe.</div>
+        <div id="quiz-blok5"></div>
+        <div class="action-buttons">
+            <button class="btn check-btn" onclick="checkAnswers('quiz-blok5')">✔ Sprawdź odpowiedzi</button>
+            <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok5', poolBlok5)">🔄 Losuj nowe pytania</button>
         </div>
     </div>
 
     <script>
         // BAZA PYTAŃ - BLOK 1
         const poolBlok1 = [
-            { q: "Czy dyrektor jutro na pewno (sprawdzić) te dokumenty?", a: "sprawdzi" },
             { q: "Niestety nie piję (ta gorąca kawa).", a: "tej gorącej kawy" },
             { q: "Wczoraj rozmawiałem z (mój nowy dentysta).", a: "moim nowym dentystą" },
             { q: "Codziennie rano czytam (ta ciekawa gazeta).", a: "tę ciekawą gazetę" },
@@ -232,24 +297,25 @@
             { q: "Moja siostra jest (świetna nauczycielka).", a: "świetną nauczycielką" },
             { q: "Egzamin państwowy mam w najbliższą (sobota).", a: "sobotę" },
             { q: "Ona w ogóle nie słucha (polska muzyka).", a: "polskiej muzyki" },
-            { q: "Czy my do jutra na pewno to (napisać)?", a: "napiszemy" },
             { q: "Niestety nie mamy w biurze (żadna nowa drukarka).", a: "żadnej nowej drukarki" },
             { q: "Zawsze rano piję (ta zimna woda).", a: "tę zimną wodę" },
             { q: "Czy twoi znajomi (znać) mojego szefa?", a: "znają" },
-            { q: "Moi sąsiedzi w weekend będą (cały czas słuchać) muzyki.", a: "cały czas słuchać" },
             { q: "Wczoraj w sklepie kupiłem (ta wspaniała gra) planszowa.", a: "tę wspaniałą grę" },
             { q: "Niestety w domu nie mam (ta wspaniała gra).", a: "tej wspaniałej gry" },
             { q: "Mój starszy brat jest (bardzo dobry lekarz).", a: "bardzo dobrym lekarzem" },
             { q: "Spotkanie organizacyjne odbędzie się w (przyszła środa).", a: "przyszłą środę" },
             { q: "Idziemy na kolację do (ta wielka restauracja).", a: "tej wielkiej restauracji" },
-            { q: "Dzisiaj wieczorem mój mąż (zrobić) zakupy.", a: "zrobi" },
             { q: "Zaraz idę do kina z (mój najlepszy przyjaciel).", a: "moim najlepszym przyjacielem" },
             { q: "W szafie mam (bardzo ładna koszula).", a: "bardzo ładną koszulę" },
-            { q: "W weekend moi znajomi (często pracować) nad projektem.", a: "będą często pracować" },
             { q: "Dlaczego ty nigdy nie czytasz (ta lokalna gazeta)?", a: "tej lokalnej gazety" },
             { q: "Zawsze chciałem być (świetny artysta).", a: "świetnym artystą" },
             { q: "Mali chłopcy jeszcze nie (wiedzieć), jak to działa.", a: "wiedzą" },
-            { q: "Muszę iść do (najbliższa apteka).", a: "najbliższej apteki" }
+            { q: "Muszę iść do (najbliższa apteka).", a: "najbliższej apteki" },
+            { q: "Mój sąsiad jest (świetny kierowca).", a: "świetnym kierowcą" },
+            { q: "Wczoraj rozmawiałem z (twój nowy kolega).", a: "twoim nowym kolegą" },
+            { q: "Czy twoi rodzice (znać) tego profesora?", a: "znają" },
+            { q: "Czy pan (wiedzieć), gdzie jest stacja metra?", a: "wie" },
+            { q: "Idziemy do (ta włoska restauracja).", a: "tej włoskiej restauracji" }
         ];
 
         // BAZA PYTAŃ - BLOK 2
@@ -281,15 +347,112 @@
             { q: "Moja mama gotuje (smacznie / smaczniej / najsmaczniej) ze wszystkich osób, które znam.", a: "najsmaczniej" }
         ];
 
+        // BAZA PYTAŃ - BLOK 3 (Czas przyszły i trudne odmiany)
+        const poolBlok3 = [
+            { q: "Czy dyrektor jutro (sprawdzić) te dokumenty?", a: "sprawdzi" },
+            { q: "Czy my do jutra na pewno to (napisać)?", a: "napiszemy" },
+            { q: "Dzisiaj wieczorem mój mąż (zrobić) zakupy.", a: "zrobi" },
+            { q: "Moi sąsiedzi w weekend będą (cały czas słuchać) muzyki.", a: "cały czas słuchać" },
+            { q: "W weekend moi znajomi (często pracować) nad projektem.", a: "będą często pracować" },
+            { q: "Niedługo (ja - zacząć) nowy projekt w pracy.", a: "zacznę" },
+            { q: "Jutro rano (on - zacząć) malować ściany.", a: "zacznie" },
+            { q: "Kiedy oni (zacząć) ten ważny projekt?", a: "zaczną" },
+            { q: "Zaraz (ja - wziąć) prysznic i wyjdę.", a: "wezmę" },
+            { q: "Czy ona (wziąć) ze sobą parasol?", a: "weźmie" },
+            { q: "Bardzo za tobą (ja - tęsknić)!", a: "tęsknię" },
+            { q: "Myślę, że Anna bardzo za nim (tęsknić).", a: "tęskni" },
+            { q: "Rodzice bardzo za tobą (oni - tęsknić).", a: "tęsknią" },
+            { q: "Codziennie (ja - dzwonić) do mamy.", a: "dzwonię" },
+            { q: "Moja siostra codziennie do mnie (dzwonić).", a: "dzwoni" },
+            { q: "Dlaczego oni ciągle do mnie (dzwonić)?", a: "dzwonią" },
+            { q: "Dziadkowie (martwić się) teraz o wnuka.", a: "martwią się" },
+            { q: "Moi rodzice cały czas (martwić się) o mnie.", a: "martwią się" },
+            { q: "Planujemy, że często (my - odwiedzać) ich w Paryżu.", a: "będziemy odwiedzać" },
+            { q: "Zastanawiam się, czy (on - zarabiać) wystarczająco dużo.", a: "będzie zarabiać" },
+            { q: "Teraz Marta (musieć) jeszcze załatwić wiele spraw.", a: "musi" },
+            { q: "Cały czas pracownicy firmy (prosić) go o dokumenty.", a: "proszą" },
+            { q: "Czy Ty i Anna (przyjechać) do nas na święta?", a: "przyjedziecie" },
+            { q: "(My - spędzić) wtedy razem trochę czasu.", a: "spędzimy" },
+            { q: "Czy wy do jutra (napisać) ten raport?", a: "napiszecie" },
+            { q: "Mechanik w piątek (naprawić) twój samochód.", a: "naprawi" }
+        ];
+
+        // BAZA PYTAŃ - BLOK 4 (Przyimki) - POPRAWIONA
+        const poolBlok4 = [
+            { q: "Każdego dnia rano czekam 15 minut (...) autobus do pracy.", a: "na" },
+            { q: "Po wyjeździe do Londynu bardzo tęskniłem (...) polskim jedzeniem.", a: "za" },
+            { q: "Kupiłem te kwiaty specjalnie (...) mojej żony.", a: "dla" },
+            { q: "Muszę się poważnie zastanowić (...) tą nową ofertą pracy.", a: "nad" },
+            { q: "Uczyliśmy się intensywnie gramatyki (...) całe popołudnie.", a: "przez" },
+            { q: "Kiedy wyjechałeś, wszyscy znajomi bardzo martwili się (...) twoje zdrowie.", a: "o" },
+            { q: "Dostałem wczoraj dziwnego SMS-a (...) mojego szefa.", a: "od" },
+            { q: "Kiedy nadeszła zima, zacząłem tęsknić (...) gorącym latem.", a: "za" },
+            { q: "Zrobiłem ten błąd tylko (...) moją wielką nieuwagę.", a: "przez" },
+            { q: "Studenci przed salą z niecierpliwością czekają (...) trudny egzamin.", a: "na" },
+            { q: "Podczas podróży cały czas myślałem i zastanawiałem się (...) przyszłością.", a: "nad" },
+            { q: "Profesor przygotował nowe materiały (...) swoich studentów.", a: "dla" },
+            { q: "Kiedy wyjeżdżasz w podróż, cała rodzina się (...) ciebie martwi.", a: "o" },
+            { q: "Całą noc nie spałem, ponieważ czekałem (...) bardzo ważny e-mail.", a: "na" },
+            { q: "Ta autostrada była budowana (...) prawie dziesięć lat.", a: "przez" },
+            { q: "Wczoraj pewna pani pytała mnie (...) drogę na dworzec.", a: "o" },
+            { q: "Kiedy byłem za granicą, bardzo tęskniłem (...) moim łóżkiem.", a: "za" },
+            { q: "Kupiłem ten telefon specjalnie (...) mojego syna.", a: "dla" },
+            { q: "Spóźniłem się do biura (...) ogromne korki w centrum.", a: "przez" },
+            { q: "Dyrektor musi się zastanowić (...) twoim nowym projektem.", a: "nad" },
+            { q: "Pracuję w tej firmie (...) trzech lat.", a: "od" },
+            { q: "Ten prezent jest (...) ciebie.", a: "dla" },
+            { q: "Proszę cię (...) pomoc w tej sprawie.", a: "o" },
+            { q: "Dzwonię do ciebie (...) dwóch godzin, ale nie odbierasz.", a: "od" },
+            { q: "Wszyscy w rodzinie martwią się (...) dziadka.", a: "o" }
+        ];
+
+        // BAZA PYTAŃ - BLOK 5 (Czas przeszły)
+        const poolBlok5 = [
+            { q: "(ja - mężczyzna - zrobić) Wczoraj wieczorem wreszcie (...) te zakupy.", a: "zrobiłem" },
+            { q: "(ja - kobieta - zrobić) Wczoraj wieczorem wreszcie (...) te zakupy.", a: "zrobiłam" },
+            { q: "(ty - kobieta - czytać) Czy ty już (...) tę ciekawą książkę?", a: "czytałaś" },
+            { q: "(ty - mężczyzna - napisać) Dlaczego ty do mnie nie (...)?", a: "napisałeś" },
+            { q: "(my - mężczyźni - pójść) W zeszłą sobotę (...) z kolegami do kina.", a: "poszliśmy" },
+            { q: "(wy - kobiety - być) O której godzinie wy wczoraj (...) w biurze?", a: "byłyście" },
+            { q: "(wy - mężczyźni - pójść) Czy wy wczoraj rano (...) do pracy?", a: "poszliście" },
+            { q: "(ja - mężczyzna - być) Wczoraj (...) bardzo zmęczony po pracy.", a: "byłem" },
+            { q: "(ja - kobieta - być) Wczoraj (...) bardzo zmęczona po pracy.", a: "byłam" },
+            { q: "(my - kobiety - iść) W sobotę (...) razem na zakupy.", a: "szłyśmy" },
+            { q: "(oni - mężczyźni - pójść) Kiedy oni (...) do domu?", a: "poszli" },
+            { q: "(one - kobiety - pójść) Kiedy one (...) do domu?", a: "poszły" },
+            { q: "(ty - mężczyzna - jeść) Co ty wczoraj (...) na obiad?", a: "jadłeś" },
+            { q: "(ty - kobieta - jeść) Co ty wczoraj (...) na obiad?", a: "jadłaś" },
+            { q: "(my - mężczyźni - jeść) Wczoraj (...) kolację o 20:00.", a: "jedliśmy" },
+            { q: "(ja - mężczyzna - móc) Niestety nie (...) przyjść na spotkanie.", a: "mogłem" },
+            { q: "(ja - kobieta - móc) Niestety nie (...) przyjść na spotkanie.", a: "mogłam" },
+            { q: "(wy - mężczyźni - widzieć) Czy wy (...) wczoraj ten nowy film?", a: "widzieliście" },
+            { q: "(my - mężczyźni - mieszkać) Kiedyś (...) w Krakowie.", a: "mieszkaliśmy" },
+            { q: "(my - kobiety - mieszkać) Kiedyś (...) w Krakowie.", a: "mieszkałyśmy" },
+            { q: "(oni - mężczyźni - przyjść) O której godzinie oni wczoraj (...)?", a: "przyszli" },
+            { q: "(ja - mężczyzna - wziąć) Rano (...) prysznic i wyszedłem.", a: "wziąłem" },
+            { q: "(ja - kobieta - wziąć) Rano (...) prysznic i wyszłam.", a: "wzięłam" },
+            { q: "(ty - mężczyzna - powiedzieć) Co ty mu (...)?", a: "powiedziałeś" },
+            { q: "(ty - kobieta - powiedzieć) Co ty mu (...)?", a: "powiedziałaś" },
+            { q: "(my - mężczyźni - chcieć) (...) pojechać nad morze.", a: "chcieliśmy" },
+            { q: "(wy - kobiety - móc) Czy wy (...) to zrobić same?", a: "mogłyście" },
+            { q: "(oni - mężczyźni - musieć) Oni (...) wczoraj długo pracować.", a: "musieli" }
+        ];
+
         let currentQuestionsBlok1 = [];
         let currentQuestionsBlok2 = [];
+        let currentQuestionsBlok3 = [];
+        let currentQuestionsBlok4 = [];
+        let currentQuestionsBlok5 = [];
 
         function loadRandomQuestions(containerId, pool) {
             let shuffled = [...pool].sort(() => 0.5 - Math.random());
             let selected = shuffled.slice(0, 10);
             
             if (containerId === 'quiz-blok1') currentQuestionsBlok1 = selected;
-            else currentQuestionsBlok2 = selected;
+            else if (containerId === 'quiz-blok2') currentQuestionsBlok2 = selected;
+            else if (containerId === 'quiz-blok3') currentQuestionsBlok3 = selected;
+            else if (containerId === 'quiz-blok4') currentQuestionsBlok4 = selected;
+            else if (containerId === 'quiz-blok5') currentQuestionsBlok5 = selected;
 
             const container = document.getElementById(containerId);
             container.innerHTML = '';
@@ -305,7 +468,6 @@
             });
         }
 
-        // ALGORYTM DIFF
         function generateDiff(correctStr, userStr) {
             const dp = Array(userStr.length + 1).fill(null).map(() => Array(correctStr.length + 1).fill(0));
             for (let i = 1; i <= userStr.length; i++) {
@@ -339,7 +501,13 @@
         }
 
         function checkAnswers(containerId) {
-            const currentQuestions = containerId === 'quiz-blok1' ? currentQuestionsBlok1 : currentQuestionsBlok2;
+            let currentQuestions;
+            if (containerId === 'quiz-blok1') currentQuestions = currentQuestionsBlok1;
+            else if (containerId === 'quiz-blok2') currentQuestions = currentQuestionsBlok2;
+            else if (containerId === 'quiz-blok3') currentQuestions = currentQuestionsBlok3;
+            else if (containerId === 'quiz-blok4') currentQuestions = currentQuestionsBlok4;
+            else if (containerId === 'quiz-blok5') currentQuestions = currentQuestionsBlok5;
+            
             let score = 0;
             let total = currentQuestions.length;
 
@@ -372,14 +540,16 @@
                 }
             });
 
-            // LOGIKA AUTOMATYCZNEGO LOSOWANIA PO 100%
             if (score === total) {
                 alert(`Twój wynik: ${score} / ${total} punktów!\n\nGratulacje! 🏆 Masz 100% poprawnych odpowiedzi.\nKliknij OK, aby wylosować nowy zestaw zadań.`);
                 
-                // Ustalenie odpowiedniej puli pytań dla danego bloku
-                const pool = containerId === 'quiz-blok1' ? poolBlok1 : poolBlok2;
+                let pool;
+                if (containerId === 'quiz-blok1') pool = poolBlok1;
+                else if (containerId === 'quiz-blok2') pool = poolBlok2;
+                else if (containerId === 'quiz-blok3') pool = poolBlok3;
+                else if (containerId === 'quiz-blok4') pool = poolBlok4;
+                else if (containerId === 'quiz-blok5') pool = poolBlok5;
                 
-                // Automatyczne załadowanie nowych pytań
                 loadRandomQuestions(containerId, pool);
             } else {
                 alert(`Twój wynik: ${score} / ${total} punktów.\n\nMasz błędy. Przeanalizuj to, co podkreślone na czerwono, popraw i sprawdź jeszcze raz!`);
@@ -402,6 +572,9 @@
         window.onload = function() {
             loadRandomQuestions('quiz-blok1', poolBlok1);
             loadRandomQuestions('quiz-blok2', poolBlok2);
+            loadRandomQuestions('quiz-blok3', poolBlok3);
+            loadRandomQuestions('quiz-blok4', poolBlok4);
+            loadRandomQuestions('quiz-blok5', poolBlok5);
             document.getElementById("defaultOpen").click();
         };
     </script>
