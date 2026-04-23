@@ -197,6 +197,31 @@
                 color: #721c24;
             }
 
+        /* NOWY STYL - Przycisk zamknięcia na dole */
+        .close-rules-btn {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+            .close-rules-btn:hover {
+                background-color: #2ecc71;
+                transform: scale(1.02);
+            }
+
+            .close-rules-btn::before {
+                content: "✏️ ";
+            }
+
         .question {
             margin-bottom: 25px;
             font-size: 16px;
@@ -338,7 +363,7 @@
 
     <!-- BLOK 1 -->
     <div id="Blok1" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok1', this)">📖 Pokaż zasady i rosyjskie haki</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok1', this)" id="toggle-blok1">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok1" class="rules-box">
             <h3>📖 BLOK 1 - Przypadki (Падежи)</h3>
 
@@ -364,7 +389,7 @@
             </div>
             <div class="warning-box">
                 <strong>⚠️ PUŁAPKA (-ka → -ki):</strong> Rzeczowniki żeńskie na "-ka" w dopełniaczu mają "-ki"!<br>
-                apteka → do apte<b>ki</b> (NIE: apteki) | książka → książ<b>ki</b> | matka → mat<b>ki</b>
+                apteka → do apte<b>ki</b> (NIE: aptece) | książka → książ<b>ki</b> | matka → mat<b>ki</b>
             </div>
 
             <h4>🔹 2. NARZĘDNIK po "JEST" i "Z" (Творительный падеж: Кем? Чем? С кем?)</h4>
@@ -419,6 +444,9 @@
             <div class="warning-box">
                 <strong>⚠️ ODMIANA (ONI):</strong> oni <b>znają</b> (NIE: zną!) | oni <b>wiedzą</b> (NIE: wiedą!)
             </div>
+
+            <!-- PRZYCISK ZAMKNIĘCIA NA DOLE -->
+            <button class="close-rules-btn" onclick="closeRules('rules-blok1', 'toggle-blok1')">Zamknij zasady i przejdź do ćwiczeń</button>
         </div>
         <div class="instructions">📝 Wpisz poprawną formę. Używaj polskich znaków (ą, ę, ł, ś, ć). Test losuje 10 zdań z dużej bazy.</div>
         <div id="quiz-blok1"></div>
@@ -430,7 +458,7 @@
 
     <!-- BLOK 2 -->
     <div id="Blok2" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok2', this)">📖 Pokaż zasady i rosyjskie haki</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok2', this)" id="toggle-blok2">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok2" class="rules-box">
             <h3>📖 BLOK 2 - Stopniowanie przymiotników i przysłówków (Степени сравнения)</h3>
 
@@ -494,6 +522,9 @@
                 <span class="pl">🇵🇱 On jedzie <b>szybciej</b>. (jak? как?)</span><br>
                 <span class="ru">🇷🇺 Машина <b>быстрее</b> (какая). | Он едет <b>быстрее</b> (как).</span>
             </div>
+
+            <!-- PRZYCISK ZAMKNIĘCIA NA DOLE -->
+            <button class="close-rules-btn" onclick="closeRules('rules-blok2', 'toggle-blok2')">Zamknij zasady i przejdź do ćwiczeń</button>
         </div>
         <div class="instructions">📝 Zidentyfikuj wskaźnik (niż, coraz, w całym/ze wszystkich) i wpisz JEDNO słowo z nawiasu.</div>
         <div id="quiz-blok2"></div>
@@ -505,7 +536,7 @@
 
     <!-- BLOK 3 -->
     <div id="Blok3" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok3', this)">📖 Pokaż zasady i rosyjskie haki</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok3', this)" id="toggle-blok3">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok3" class="rules-box">
             <h3>📖 BLOK 3 - Czas przyszły (Будущее время)</h3>
 
@@ -571,6 +602,9 @@
                 Ja będ<b>ę</b> | On będzi<b>e</b> (NIE: będzię!)<br>
                 Egzamin będzi<b>e</b> trudny. (NIE: będzię!)
             </div>
+
+            <!-- PRZYCISK ZAMKNIĘCIA NA DOLE -->
+            <button class="close-rules-btn" onclick="closeRules('rules-blok3', 'toggle-blok3')">Zamknij zasady i przejdź do ćwiczeń</button>
         </div>
         <div class="instructions">📝 Wpisz poprawną formę czasownika. Zwróć uwagę na aspekt (proces/rezultat) oraz końcówki osobowe.</div>
         <div id="quiz-blok3"></div>
@@ -582,7 +616,7 @@
 
     <!-- BLOK 4 -->
     <div id="Blok4" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok4', this)">📖 Pokaż zasady i rosyjskie haki</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok4', this)" id="toggle-blok4">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok4" class="rules-box">
             <h3>📖 BLOK 4 - Przyimki / Rekcja (Предлоги / Управление)</h3>
 
@@ -658,6 +692,9 @@
                 <tr><td>pytać / prosić</td><td><b>O</b> + Biernik</td><td>спрашивать / просить <b>О</b></td></tr>
                 <tr><td>zastanawiać się</td><td><b>NAD</b> + Narzędnik</td><td>думать <b>НАД</b> + Твор.</td></tr>
             </table>
+
+            <!-- PRZYCISK ZAMKNIĘCIA NA DOLE -->
+            <button class="close-rules-btn" onclick="closeRules('rules-blok4', 'toggle-blok4')">Zamknij zasady i przejdź do ćwiczeń</button>
         </div>
         <div class="instructions">📝 Wpisz odpowiedni przyimek (za, na, o, nad, dla, przez, od). Zidentyfikuj czasownik lub kontekst.</div>
         <div id="quiz-blok4"></div>
@@ -669,7 +706,7 @@
 
     <!-- BLOK 5 -->
     <div id="Blok5" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok5', this)">📖 Pokaż zasady i rosyjskie haki</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok5', this)" id="toggle-blok5">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok5" class="rules-box">
             <h3>📖 BLOK 5 - Czas przeszły (Прошедшее время)</h3>
 
@@ -723,6 +760,9 @@
                 <tr><td>wy (męski)</td><td>po<b>szli</b>ście</td><td>❌ poszedliście</td></tr>
                 <tr><td>oni</td><td>po<b>szli</b></td><td>❌ poszedli</td></tr>
             </table>
+
+            <!-- PRZYCISK ZAMKNIĘCIA NA DOLE -->
+            <button class="close-rules-btn" onclick="closeRules('rules-blok5', 'toggle-blok5')">Zamknij zasady i przejdź do ćwiczeń</button>
         </div>
         <div class="instructions">📝 Wpisz poprawną formę czasu przeszłego. Zwróć uwagę na płeć osoby/grupy oraz końcówki osobowe.</div>
         <div id="quiz-blok5"></div>
@@ -734,7 +774,7 @@
 
     <!-- BLOK 6 - TRYB WARUNKOWY -->
     <div id="Blok6" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok6', this)">📖 Pokaż zasady i rosyjskie haki</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok6', this)" id="toggle-blok6">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok6" class="rules-box">
             <h3>📖 BLOK 6 - Tryb warunkowy (Условное наклонение)</h3>
 
@@ -831,6 +871,9 @@
                 <span class="pl">🇵🇱 <b>Na twoim miejscu</b> zrobiłbym to inaczej. (На твоём месте я бы сделал это иначе.)</span><br>
                 <span class="pl">🇵🇱 <b>Co byś zrobił</b>, gdybyś wygrał milion? (Что бы ты сделал, если бы выиграл миллион?)</span>
             </div>
+
+            <!-- PRZYCISK ZAMKNIĘCIA NA DOLE -->
+            <button class="close-rules-btn" onclick="closeRules('rules-blok6', 'toggle-blok6')">Zamknij zasady i przejdź do ćwiczeń</button>
         </div>
         <div class="instructions">📝 Wpisz poprawną formę trybu warunkowego. Zwróć uwagę na płeć osoby/grupy oraz wędrówkę cząstki BY.</div>
         <div id="quiz-blok6"></div>
@@ -997,7 +1040,6 @@
 
         // BAZA PYTAŃ - BLOK 6 (Tryb warunkowy)
         const poolBlok6 = [
-            // CHCIAŁBYM + bezokolicznik
             { q: "(ja - mężczyzna - chcieć) (...) zamówić kawę z mlekiem.", a: "chciałbym" },
             { q: "(ja - kobieta - chcieć) (...) zamówić herbatę.", a: "chciałabym" },
             { q: "(ty - mężczyzna - chcieć) Czy (...) pójść ze mną do kina?", a: "chciałbyś" },
@@ -1010,67 +1052,48 @@
             { q: "(wy - kobiety - chcieć) Czy (...) pojechać z nami nad morze?", a: "chciałybyście" },
             { q: "(oni - chcieć) Oni (...) zorganizować dużą imprezę.", a: "chcieliby" },
             { q: "(one - chcieć) One (...) otworzyć własną firmę.", a: "chciałyby" },
-
-            // MÓC w trybie warunkowym
             { q: "(ja - mężczyzna - móc) Czy (...) prosić o szklankę wody?", a: "mógłbym" },
             { q: "(ja - kobieta - móc) Czy (...) prosić o menu?", a: "mogłabym" },
             { q: "(ty - mężczyzna - móc) Czy (...) mi pomóc?", a: "mógłbyś" },
             { q: "(ty - kobieta - móc) Czy (...) mi to wytłumaczyć?", a: "mogłabyś" },
             { q: "(on - móc) On (...) to zrobić, ale nie chce.", a: "mógłby" },
             { q: "(ona - móc) Ona (...) tu przyjść, ale jest zajęta.", a: "mogłaby" },
-            { q: "(my - mężczyźni - móc) (...) zacząć wcześniej, gdybyś chciał.", a: "moglibyśmy" },
-            { q: "(wy - mężczyźni - móc) Czy (...) nam pomóc z przeprowadzką?", a: "moglibyście" },
-            { q: "(oni - móc) Oni (...) więcej zarabiać, gdyby pracowali ciężej.", a: "mogliby" },
-
-            // BYĆ w trybie warunkowym
-            { q: "(ja - mężczyzna - być) (...) bardzo szczęśliwy, gdybyś przyszła.", a: "byłbym" },
-            { q: "(ja - kobieta - być) (...) bardzo szczęśliwa, gdybyś przyszedł.", a: "byłabym" },
+            { q: "(my - mężczyźni - móc) (...) zacząć wcześniej.", a: "moglibyśmy" },
+            { q: "(wy - mężczyźni - móc) Czy (...) nam pomóc?", a: "moglibyście" },
+            { q: "(oni - móc) Oni (...) więcej zarabiać.", a: "mogliby" },
+            { q: "(ja - mężczyzna - być) (...) bardzo szczęśliwy.", a: "byłbym" },
+            { q: "(ja - kobieta - być) (...) bardzo szczęśliwa.", a: "byłabym" },
             { q: "(ty - mężczyzna - być) (...) zadowolony z tego prezentu?", a: "byłbyś" },
             { q: "(ty - kobieta - być) (...) zadowolona z tej pracy?", a: "byłabyś" },
-            { q: "(on - być) On (...) świetnym lekarzem, gdyby skończył studia.", a: "byłby" },
+            { q: "(on - być) On (...) świetnym lekarzem.", a: "byłby" },
             { q: "(ona - być) Ona (...) dobrą nauczycielką.", a: "byłaby" },
-
-            // ZROBIĆ / POWIEDZIEĆ w trybie warunkowym
             { q: "(ja - mężczyzna - zrobić) Na twoim miejscu (...) to inaczej.", a: "zrobiłbym" },
             { q: "(ja - kobieta - zrobić) Na twoim miejscu (...) to inaczej.", a: "zrobiłabym" },
             { q: "(ty - mężczyzna - zrobić) Co (...) na moim miejscu?", a: "zrobiłbyś" },
             { q: "(ty - kobieta - zrobić) Co (...) na moim miejscu?", a: "zrobiłabyś" },
-            { q: "(ja - mężczyzna - powiedzieć) Na twoim miejscu (...) mu prawdę.", a: "powiedziałbym" },
-            { q: "(ja - kobieta - powiedzieć) Na twoim miejscu (...) mu prawdę.", a: "powiedziałabym" },
-
-            // POJECHAĆ / KUPIĆ w trybie warunkowym
-            { q: "(ja - mężczyzna - pojechać) Chętnie (...) z wami na wycieczkę.", a: "pojechałbym" },
-            { q: "(ja - kobieta - pojechać) Chętnie (...) z wami na wycieczkę.", a: "pojechałabym" },
-            { q: "(ja - mężczyzna - kupić) (...) ci prezent, ale nie mam pieniędzy.", a: "kupiłbym" },
-            { q: "(ja - kobieta - kupić) (...) ci prezent, ale nie mam pieniędzy.", a: "kupiłabym" },
-
-            // WĘDRÓWKA BY: GDYBYM / GDYBYŚ
-            { q: "(ja) Wpisz tylko spójnik: (...) wiedział wcześniej, powiedziałbym ci.", a: "gdybym" },
-            { q: "(ty) Wpisz tylko spójnik: (...) mógł, pomógłbyś mi?", a: "gdybyś" },
-            { q: "(on) Wpisz tylko spójnik: (...) miał więcej czasu, pojechałby na wakacje.", a: "gdyby" },
-            { q: "(my) Wpisz tylko spójnik: (...) mieli pieniądze, kupilibyśmy dom.", a: "gdybyśmy" },
-            { q: "(wy) Wpisz tylko spójnik: (...) chcieli, moglibyście zostać na noc.", a: "gdybyście" },
-
-            // WĘDRÓWKA BY: ŻEBYM / ŻEBYŚ
-            { q: "(ja) Wpisz tylko spójnik: Chcę, (...) to zrozumiał.", a: "żebym" },
-            { q: "(ty) Wpisz tylko spójnik: Proszę, (...) przyszła punktualnie.", a: "żebyś" },
-            { q: "(on) Wpisz tylko spójnik: Chciałbym, (...) był szczęśliwy.", a: "żeby" },
-            { q: "(my) Wpisz tylko spójnik: Nauczyciel chce, (...) napisali test.", a: "żebyśmy" },
-            { q: "(wy) Wpisz tylko spójnik: Proszę, (...) byli cicho.", a: "żebyście" },
-
-            // Zdania z GDYBY - czasownik w przeszłym
-            { q: "(ja - mężczyzna) Gdybym (...) więcej czasu, uczyłbym się języków. (mieć)", a: "miał" },
-            { q: "(ja - kobieta) Gdybym (...) więcej czasu, uczyłabym się tańca. (mieć)", a: "miała" },
+            { q: "(ja - mężczyzna - powiedzieć) (...) mu prawdę.", a: "powiedziałbym" },
+            { q: "(ja - kobieta - powiedzieć) (...) mu prawdę.", a: "powiedziałabym" },
+            { q: "(ja - mężczyzna - pojechać) Chętnie (...) z wami.", a: "pojechałbym" },
+            { q: "(ja - kobieta - pojechać) Chętnie (...) z wami.", a: "pojechałabym" },
+            { q: "(ja - mężczyzna - kupić) (...) ci prezent.", a: "kupiłbym" },
+            { q: "(ja - kobieta - kupić) (...) ci prezent.", a: "kupiłabym" },
+            { q: "(ja) Wpisz spójnik: (...) wiedział wcześniej, powiedziałbym ci. (gdyby+ja)", a: "gdybym" },
+            { q: "(ty) Wpisz spójnik: (...) mógł, pomógłbyś mi? (gdyby+ty)", a: "gdybyś" },
+            { q: "(on) Wpisz spójnik: (...) miał czas, pojechałby. (gdyby+on)", a: "gdyby" },
+            { q: "(my) Wpisz spójnik: (...) mieli pieniądze, kupilibyśmy dom. (gdyby+my)", a: "gdybyśmy" },
+            { q: "(wy) Wpisz spójnik: (...) chcieli, moglibyście zostać. (gdyby+wy)", a: "gdybyście" },
+            { q: "(ja) Wpisz spójnik: Chcę, (...) to zrozumiał. (żeby+ja)", a: "żebym" },
+            { q: "(ty) Wpisz spójnik: Proszę, (...) przyszła. (żeby+ty)", a: "żebyś" },
+            { q: "(on) Wpisz spójnik: Chciałbym, (...) był szczęśliwy. (żeby+on)", a: "żeby" },
+            { q: "(my) Wpisz spójnik: Nauczyciel chce, (...) napisali test. (żeby+my)", a: "żebyśmy" },
+            { q: "(wy) Wpisz spójnik: Proszę, (...) byli cicho. (żeby+wy)", a: "żebyście" },
+            { q: "(ja - mężczyzna) Gdybym (...) więcej czasu, uczyłbym się. (mieć)", a: "miał" },
+            { q: "(ja - kobieta) Gdybym (...) więcej czasu, uczyłabym się. (mieć)", a: "miała" },
             { q: "(ty - mężczyzna) Gdybyś (...) prawdę, co byś zrobił? (wiedzieć)", a: "wiedział" },
             { q: "(ty - kobieta) Gdybyś (...) prawdę, co byś zrobiła? (wiedzieć)", a: "wiedziała" },
-            { q: "(on) Gdyby (...) bogatszy, kupiłby sobie jacht. (być)", a: "był" },
+            { q: "(on) Gdyby (...) bogatszy, kupiłby jacht. (być)", a: "był" },
             { q: "(ona) Gdyby (...), pomogłaby ci. (móc)", a: "mogła" },
-            { q: "(my - mężczyźni) Gdybyśmy (...) bliżej, odwiedzalibyśmy was częściej. (mieszkać)", a: "mieszkali" },
-            { q: "(wy - mężczyźni) Gdybyście (...) więcej, zdalibyście egzamin. (uczyć się)", a: "uczyli się" },
-
-            // Mieszane - pełne zdania
-            { q: "(ja - mężczyzna) Co byś (...), gdybyś wygrał milion złotych? (zrobić)", a: "zrobił" },
-            { q: "(ja - kobieta) Co byś (...), gdybyś wygrała milion złotych? (zrobić)", a: "zrobiła" },
+            { q: "(my - mężczyźni) Gdybyśmy (...) bliżej, odwiedzalibyśmy was. (mieszkać)", a: "mieszkali" },
             { q: "(ja - mężczyzna - jeść) Chętnie (...) teraz pizzę.", a: "zjadłbym" },
             { q: "(ja - kobieta - jeść) Chętnie (...) teraz pizzę.", a: "zjadłabym" },
             { q: "(ja - mężczyzna - pójść) (...) z tobą do teatru.", a: "poszedłbym" },
@@ -1100,6 +1123,22 @@
             }
         }
 
+        // NOWA FUNKCJA - Zamknięcie zasad z przycisku na dole
+        function closeRules(rulesId, toggleId) {
+            const rulesBox = document.getElementById(rulesId);
+            const toggleButton = document.getElementById(toggleId);
+
+            rulesBox.classList.remove('visible');
+            toggleButton.textContent = '📖 Pokaż zasady i rosyjskie haki';
+            toggleButton.classList.remove('active');
+
+            // Przewiń do ćwiczeń
+            const quizSection = rulesBox.nextElementSibling;
+            if (quizSection) {
+                quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
         function loadRandomQuestions(containerId, pool) {
             let shuffled = [...pool].sort(() => 0.5 - Math.random());
             let selected = shuffled.slice(0, 10);
@@ -1118,7 +1157,7 @@
                 const div = document.createElement('div');
                 div.className = 'question';
 
-                const questionText = item.q.replace(/\((.*?)\)/, `<span class="hint">($1)</span> <input type="text" id="${containerId}-q${index}" autocomplete="off" spellcheck="false">`);
+                const questionText = item.q.replace(/\(([^)]+)\)/, `<span class="hint">($1)</span> <input type="text" id="${containerId}-q${index}" autocomplete="off" spellcheck="false">`);
 
                 div.innerHTML = `<b>${index + 1}.</b> ${questionText} <span id="${containerId}-fb${index}" class="feedback"></span>`;
                 container.appendChild(div);
