@@ -9,7 +9,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f7f6;
             color: #333;
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -36,9 +36,9 @@
                 cursor: pointer;
                 padding: 14px 10px;
                 transition: 0.3s;
-                font-size: 14px;
+                font-size: 13px;
                 font-weight: bold;
-                min-width: 120px;
+                min-width: 90px;
             }
 
                 .tab button:hover {
@@ -93,8 +93,9 @@
             border-left: 5px solid #3498db;
             margin-bottom: 20px;
             border-radius: 4px;
-            font-size: 15px;
+            font-size: 14px;
             animation: fadeIn 0.3s ease-in-out;
+            line-height: 1.6;
         }
 
             .rules-box.visible {
@@ -116,7 +117,85 @@
         .rules-box h3 {
             margin-top: 0;
             color: #2980b9;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
         }
+
+        .rules-box h4 {
+            margin-top: 18px;
+            margin-bottom: 8px;
+            color: #e74c3c;
+            background-color: #fdf2f2;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .rules-box table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .rules-box th, .rules-box td {
+            border: 1px solid #bdc3c7;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .rules-box th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .rules-box tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .ru-hint {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+            .ru-hint strong {
+                color: #856404;
+            }
+
+        .example-box {
+            background-color: #d4edda;
+            border: 1px solid #28a745;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+            .example-box .pl {
+                color: #155724;
+                font-weight: bold;
+            }
+
+            .example-box .ru {
+                color: #666;
+                font-style: italic;
+            }
+
+        .warning-box {
+            background-color: #f8d7da;
+            border: 1px solid #dc3545;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+            .warning-box strong {
+                color: #721c24;
+            }
 
         .question {
             margin-bottom: 25px;
@@ -140,7 +219,7 @@
             font-size: 16px;
             border: 2px solid #bdc3c7;
             border-radius: 4px;
-            width: 260px;
+            width: 280px;
             transition: 0.3s;
         }
 
@@ -168,10 +247,6 @@
         .correct-text {
             color: #27ae60;
             font-weight: bold;
-        }
-
-        .incorrect-text {
-            color: #e74c3c;
         }
 
         .feedback-details {
@@ -207,6 +282,9 @@
             font-style: italic;
             color: #7f8c8d;
             margin-bottom: 15px;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
         }
 
         .action-buttons {
@@ -247,7 +325,7 @@
 </head>
 <body>
 
-    <h1>Trening Gramatyki B1 🇵🇱</h1>
+    <h1>🇵🇱 Trening Gramatyki B1 - Rosyjskie Haki 🇷🇺</h1>
 
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'Blok1')" id="defaultOpen">BLOK 1: Przypadki</button>
@@ -255,21 +333,94 @@
         <button class="tablinks" onclick="openTab(event, 'Blok3')">BLOK 3: Czas przyszły</button>
         <button class="tablinks" onclick="openTab(event, 'Blok4')">BLOK 4: Przyimki</button>
         <button class="tablinks" onclick="openTab(event, 'Blok5')">BLOK 5: Czas przeszły</button>
+        <button class="tablinks" onclick="openTab(event, 'Blok6')">BLOK 6: Tryb warunkowy</button>
     </div>
 
     <!-- BLOK 1 -->
     <div id="Blok1" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok1', this)">📖 Pokaż zasady</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok1', this)">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok1" class="rules-box">
-            <h3>📖 BLOK 1 - Rosyjskie Haki:</h3>
-            <ul>
-                <li><b>Słowo NIE i DO:</b> Wymusza Dopełniacz (Kogo? Чего?). Zaimki: <i>tej, tego</i>. (Uwaga fonetyka: k/g+i -> <i>wielkiej, polskiej</i>).</li>
-                <li><b>Zawód / Z kim?:</b> Narzędnik (Творительный). Kobiety <b>-ą, -ą</b>. Mężczyźni <b>-ym/-em</b> (Mężczyźni na "A" to pułapka: <i>świetnym dentystą, kolegą</i>).</li>
-                <li><b>Biernik (widzę, mam, piję, w środę):</b> Dla rodzaju żeńskiego (ona): Przymiotnik <b>-ą</b>, rzeczownik <b>-ę</b>. Zaimek "ta" -> <b>tę</b>.</li>
-                <li><b>Znam vs Wiem:</b> <i>Znam</i> człowieka/rzecz. <i>Wiem</i> fakt (gdzie, kto, że). Odmiana oni: <i>znają / wiedzą</i>.</li>
-            </ul>
+            <h3>📖 BLOK 1 - Przypadki (Падежи)</h3>
+
+            <h4>🔹 1. DOPEŁNIACZ po "NIE" i "DO" (Родительный падеж: Кого? Чего?)</h4>
+            <div class="ru-hint">
+                <strong>🇷🇺 Rosyjski hak:</strong> W rosyjskim po "НЕТ" też używasz Родительного! <br>
+                У меня <b>нет</b> времен<b>и</b> = Nie mam czas<b>u</b>. <br>
+                Иду <b>до</b> магазин<b>а</b> = Idę <b>do</b> sklep<b>u</b>.
+            </div>
+            <table>
+                <tr><th>Rodzaj</th><th>Mianownik (kto? co?)</th><th>Dopełniacz (kogo? czego?)</th><th>Rosyjski</th></tr>
+                <tr><td>Męski (on)</td><td>nowy sklep</td><td>nowe<b>go</b> sklep<b>u</b></td><td>нового магазина</td></tr>
+                <tr><td>Żeński (ona)</td><td>polska kawa</td><td>polsk<b>iej</b> kaw<b>y</b></td><td>польского кофе</td></tr>
+                <tr><td>Nijaki (ono)</td><td>zimne mleko</td><td>zimne<b>go</b> mlek<b>a</b></td><td>холодного молока</td></tr>
+            </table>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Nie piję gorącej herbaty.</span><br>
+                <span class="ru">🇷🇺 Я не пью горячего чая. (Родительный после отрицания!)</span>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ PUŁAPKA FONETYCZNA (k/g + i):</strong> Po literach K i G zawsze dodajemy "i" przed "e"!<br>
+                wielka → wielk<b>iej</b> (NIE: wielkej) | polska → polsk<b>iej</b> | droga → drog<b>iej</b>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ PUŁAPKA (-ka → -ki):</strong> Rzeczowniki żeńskie na "-ka" w dopełniaczu mają "-ki"!<br>
+                apteka → do apte<b>ki</b> (NIE: apteki) | książka → książ<b>ki</b> | matka → mat<b>ki</b>
+            </div>
+
+            <h4>🔹 2. NARZĘDNIK po "JEST" i "Z" (Творительный падеж: Кем? Чем? С кем?)</h4>
+            <div class="ru-hint">
+                <strong>🇷🇺 Rosyjski hak:</strong> Po "ЯВЛЯЕТСЯ" i "С" też używasz Творительного!<br>
+                Он является врач<b>ом</b> = On jest lekarz<b>em</b>.<br>
+                Иду с друг<b>ом</b> = Idę z kolega<b>ą</b> (UWAGA: kolega to pułapka!).
+            </div>
+            <table>
+                <tr><th>Rodzaj</th><th>Mianownik</th><th>Narzędnik</th><th>Rosyjski</th></tr>
+                <tr><td>Męski (on)</td><td>dobry lekarz</td><td>dobr<b>ym</b> lekarz<b>em</b></td><td>хорошим врачом</td></tr>
+                <tr><td>Żeński (ona)</td><td>dobra studentka</td><td>dobr<b>ą</b> studentk<b>ą</b></td><td>хорошей студенткой</td></tr>
+                <tr><td>Męski na -A!</td><td>świetny dentysta</td><td>świetn<b>ym</b> dentyst<b>ą</b></td><td>отличным дантистом</td></tr>
+            </table>
+            <div class="warning-box">
+                <strong>⚠️ NAJWIĘKSZA PUŁAPKA B1:</strong> Mężczyźni kończący się na "-A" (dentysta, kolega, kierowca, artysta, mężczyzna)!<br>
+                Przymiotnik: męski (<b>-ym</b>) | Rzeczownik: końcówka żeńska (<b>-ą</b>)!<br>
+                <span class="pl">On jest świetn<b>ym</b> dentyst<b>ą</b>.</span> (NIE: świetną dentystą!)
+            </div>
+
+            <h4>🔹 3. BIERNIK (Винительный падеж: Кого? Что? Вижу, пью, ем...)</h4>
+            <div class="ru-hint">
+                <strong>🇷🇺 Rosyjski hak:</strong> Rosyjskie -УЮ / -У = Polskie -Ą / -Ę<br>
+                Пью горяч<b>ую</b> вод<b>у</b> = Piję gorąc<b>ą</b> wod<b>ę</b>.<br>
+                Вижу нов<b>ую</b> книг<b>у</b> = Widzę now<b>ą</b> książk<b>ę</b>.
+            </div>
+            <table>
+                <tr><th>Rosyjski</th><th>Polski przymiotnik</th><th>Polski rzeczownik</th></tr>
+                <tr><td>-УЮ (какую?)</td><td><b>-Ą</b> (jaką?)</td><td>—</td></tr>
+                <tr><td>-У (что?)</td><td>—</td><td><b>-Ę</b> (co?)</td></tr>
+            </table>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Mam now<b>ą</b> prac<b>ę</b>. Piję gorąc<b>ą</b> kaw<b>ę</b>. Widzę ładn<b>ą</b> dziewczyn<b>ę</b>.</span><br>
+                <span class="ru">🇷🇺 У меня нов<b>ая</b> работ<b>а</b> → Имею нов<b>ую</b> работ<b>у</b>.</span>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ ZAIMEK "TA":</strong> ta → t<b>ę</b> (Biernik) vs ta → t<b>ej</b> (Dopełniacz)<br>
+                Piję t<b>ę</b> kawę (Вижу эт<b>у</b>). | Nie piję t<b>ej</b> kawy (Нет эт<b>ой</b>).
+            </div>
+
+            <h4>🔹 4. ZNAM vs WIEM (Знаю кого/что vs Знаю, что/где...)</h4>
+            <div class="ru-hint">
+                <strong>🇷🇺 Rosyjski hak:</strong> W rosyjskim jedno słowo "ЗНАЮ", w polskim DWA!<br>
+                Я <b>знаю</b> Петра = <b>Znam</b> Piotra. (człowiek/rzecz)<br>
+                Я <b>знаю</b>, где он живёт = <b>Wiem</b>, gdzie on mieszka. (fakt/informacja)
+            </div>
+            <table>
+                <tr><th>Czasownik</th><th>Co po nim?</th><th>Przykład PL</th><th>Przykład RU</th></tr>
+                <tr><td><b>ZNAM</b></td><td>osobę / rzecz</td><td>Znam tego profesora.</td><td>Знаю этого профессора.</td></tr>
+                <tr><td><b>WIEM</b></td><td>fakt (że, gdzie, kto, kiedy)</td><td>Wiem, gdzie on jest.</td><td>Знаю, где он.</td></tr>
+            </table>
+            <div class="warning-box">
+                <strong>⚠️ ODMIANA (ONI):</strong> oni <b>znają</b> (NIE: zną!) | oni <b>wiedzą</b> (NIE: wiedą!)
+            </div>
         </div>
-        <div class="instructions">Wpisz poprawną formę. Używaj polskich znaków (ą, ę, ł, ś, ć). Test losuje 10 zdań z dużej bazy.</div>
+        <div class="instructions">📝 Wpisz poprawną formę. Używaj polskich znaków (ą, ę, ł, ś, ć). Test losuje 10 zdań z dużej bazy.</div>
         <div id="quiz-blok1"></div>
         <div class="action-buttons">
             <button class="btn check-btn" onclick="checkAnswers('quiz-blok1')">✔ Sprawdź odpowiedzi</button>
@@ -279,17 +430,72 @@
 
     <!-- BLOK 2 -->
     <div id="Blok2" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok2', this)">📖 Pokaż zasady</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok2', this)">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok2" class="rules-box">
-            <h3>📖 BLOK 2 - Rosyjskie Haki:</h3>
-            <ul>
-                <li><b>Wskaźnik "NIŻ" (чем):</b> Wymusza stopień 2 (wyższy). Np. <i>szybszy, droższy, lepiej, gorzej</i>.</li>
-                <li><b>Wskaźnik "CORAZ" (всё более):</b> Wymusza stopień 2 (wyższy). Np. <i>droższe, częściej, szybciej</i>.</li>
-                <li><b>Wskaźnik "W CAŁYM / ZE WSZYSTKICH" (из всех):</b> Dominacja. Wymusza stopień 3 z przedrostkiem <b>naj-</b>.</li>
-                <li><b>Nieregularne:</b> dobry-lepszy-najlepszy, zły-gorszy-najgorszy, duży-większy-największy, dobrze-lepiej-najlepiej, źle-gorzej-najgorzej, dużo-więcej-najwięcej.</li>
-            </ul>
+            <h3>📖 BLOK 2 - Stopniowanie przymiotników i przysłówków (Степени сравнения)</h3>
+
+            <div class="ru-hint">
+                <strong>🇷🇺 Rosyjski hak - GŁÓWNA ZASADA:</strong><br>
+                Polski system stopniowania jest IDENTYCZNY jak rosyjski!<br>
+                хороший → лучше → лучший = dobry → lepszy → najlepszy<br>
+                быстро → быстрее → быстрее всего = szybko → szybciej → najszybciej
+            </div>
+
+            <h4>🔹 1. Wskaźnik "NIŻ" (ЧЕМ) → Stopień 2 (wyższy)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Ten samochód jest <b>szybszy NIŻ</b> tamten.</span><br>
+                <span class="ru">🇷🇺 Эта машина <b>быстрее, ЧЕМ</b> та.</span>
+            </div>
+            <div class="ru-hint">
+                <strong>🇷🇺 Hak:</strong> Widzisz "NIŻ"? Zawsze wybierasz formę porównawczą (сравнительную степень)!<br>
+                drogi → droż<b>szy</b> | szybko → szyb<b>ciej</b> | dobrze → lep<b>iej</b>
+            </div>
+
+            <h4>🔹 2. Wskaźnik "CORAZ" (ВСЁ БОЛЕЕ / ВСЁ ЧАЩЕ) → Stopień 2 (wyższy)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Ceny są <b>CORAZ</b> wyższe.</span><br>
+                <span class="ru">🇷🇺 Цены <b>ВСЁ</b> выше и выше.</span>
+            </div>
+            <div class="ru-hint">
+                <strong>🇷🇺 Hak:</strong> "CORAZ" = dynamiczna zmiana. Zawsze stopień 2!<br>
+                coraz droższy | coraz szybciej | coraz lepiej | coraz częściej
+            </div>
+
+            <h4>🔹 3. Wskaźnik "W CAŁYM / ZE WSZYSTKICH" (ИЗ ВСЕХ / ВО ВСЁМ) → Stopień 3 (najwyższy)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 To <b>najlepsza</b> restauracja <b>w całym</b> mieście.</span><br>
+                <span class="ru">🇷🇺 Это <b>лучший</b> ресторан <b>во всём</b> городе.</span>
+            </div>
+            <div class="ru-hint">
+                <strong>🇷🇺 Hak:</strong> Dominacja nad grupą = stopień najwyższy = przedrostek <b>NAJ-</b><br>
+                najdroższy | najszybciej | najlepszy | najczęściej
+            </div>
+
+            <h4>🔹 4. Formy NIEREGULARNE (Нерегулярные формы)</h4>
+            <table>
+                <tr><th>Stopień 1</th><th>Stopień 2</th><th>Stopień 3</th><th>Rosyjski odpowiednik</th></tr>
+                <tr><td>dobry</td><td><b>lepszy</b></td><td><b>najlepszy</b></td><td>хороший → лучше → лучший</td></tr>
+                <tr><td>zły</td><td><b>gorszy</b></td><td><b>najgorszy</b></td><td>плохой → хуже → худший</td></tr>
+                <tr><td>duży</td><td><b>większy</b></td><td><b>największy</b></td><td>большой → больше → самый большой</td></tr>
+                <tr><td>mały</td><td><b>mniejszy</b></td><td><b>najmniejszy</b></td><td>маленький → меньше → самый маленький</td></tr>
+                <tr><td>dobrze</td><td><b>lepiej</b></td><td><b>najlepiej</b></td><td>хорошо → лучше → лучше всего</td></tr>
+                <tr><td>źle</td><td><b>gorzej</b></td><td><b>najgorzej</b></td><td>плохо → хуже → хуже всего</td></tr>
+                <tr><td>dużo</td><td><b>więcej</b></td><td><b>najwięcej</b></td><td>много → больше → больше всего</td></tr>
+            </table>
+
+            <h4>🔹 5. Przymiotnik vs Przysłówek (Прилагательное vs Наречие)</h4>
+            <div class="ru-hint">
+                <strong>🇷🇺 Hak:</strong> Tak samo jak w rosyjskim!<br>
+                <b>PRZYMIOTNIK</b> (какой?) opisuje RZECZOWNIK → końcówka <b>-szy/-sza/-sze</b><br>
+                <b>PRZYSŁÓWEK</b> (как?) opisuje CZASOWNIK → końcówka <b>-iej/-ej</b>
+            </div>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Ten samochód jest <b>szybszy</b>. (jaki? какой?)</span><br>
+                <span class="pl">🇵🇱 On jedzie <b>szybciej</b>. (jak? как?)</span><br>
+                <span class="ru">🇷🇺 Машина <b>быстрее</b> (какая). | Он едет <b>быстрее</b> (как).</span>
+            </div>
         </div>
-        <div class="instructions">Zidentyfikuj wskaźnik i wpisz JEDNO słowo wybrane z nawiasu. Test losuje 10 zdań z dużej bazy.</div>
+        <div class="instructions">📝 Zidentyfikuj wskaźnik (niż, coraz, w całym/ze wszystkich) i wpisz JEDNO słowo z nawiasu.</div>
         <div id="quiz-blok2"></div>
         <div class="action-buttons">
             <button class="btn check-btn" onclick="checkAnswers('quiz-blok2')">✔ Sprawdź odpowiedzi</button>
@@ -299,18 +505,74 @@
 
     <!-- BLOK 3 -->
     <div id="Blok3" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok3', this)">📖 Pokaż zasady</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok3', this)">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok3" class="rules-box">
-            <h3>📖 BLOK 3 - Rosyjskie Haki (Czas przyszły i trudne odmiany):</h3>
-            <ul>
-                <li><b>Rezultat (сделаю):</b> Sam czasownik BEZ "będzie" -> <i>zrobię, sprawdzi, napiszemy, zacznie</i>.</li>
-                <li><b>Proces (буду делать):</b> "Będzie" + bezokolicznik -> <i>będę robić, będą pracować, będziemy odwiedzać</i>.</li>
-                <li><b>Czasowniki na "-ĄĆ" (zacząć, wziąć):</b> JA = <b>-ę</b> (bez "i"!): <i>zacznę, wezmę</i>. ON/ONA = <b>-ie</b>: <i>zacznie, weźmie</i>.</li>
-                <li><b>Czasowniki na "-NIĆ" (tęsknić, dzwonić):</b> JA = <b>-nię</b> (z "i"!): <i>tęsknię, dzwonię</i>. ON/ONA = <b>-ni</b> (bez "e"!): <i>tęskni, dzwoni</i>. ONI = <b>-nią</b>: <i>tęsknią, dzwonią</i>.</li>
-                <li><b>Czasowniki na "-IĆ" (martwić się, robić):</b> ONI = <b>-ią</b> (z "i"!): <i>martwią się, robią</i>.</li>
-            </ul>
+            <h3>📖 BLOK 3 - Czas przyszły (Будущее время)</h3>
+
+            <h4>🔹 1. REZULTAT vs PROCES (Совершенный vs Несовершенный вид)</h4>
+            <div class="ru-hint">
+                <strong>🇷🇺 Rosyjski hak - GŁÓWNA ZASADA:</strong><br>
+                Polski aspekt działa DOKŁADNIE jak rosyjski!<br>
+                <b>Я СДЕЛАЮ</b> (rezultat) = <b>Zrobię</b> (BEZ słowa "będzie"!)<br>
+                <b>Я БУДУ ДЕЛАТЬ</b> (proces) = <b>Będę robić</b> (ZE słowem "będzie"!)
+            </div>
+            <table>
+                <tr><th>Aspekt</th><th>Rosyjski</th><th>Polski</th><th>Przykład</th></tr>
+                <tr><td><b>Dokonany</b> (rezultat)</td><td>Я сделаю / напишу</td><td>Sam czasownik!</td><td>zrobię, napiszę, sprawdzi</td></tr>
+                <tr><td><b>Niedokonany</b> (proces)</td><td>Я буду делать</td><td>będę + bezokolicznik</td><td>będę robić, będzie pisać</td></tr>
+            </table>
+            <div class="warning-box">
+                <strong>⚠️ PUŁAPKA EGZAMINACYJNA:</strong> Na egzaminie w nawiasie jest podany aspekt!<br>
+                (zrobić) = dokonany → <b>zrobię</b> (NIE: będę zrobić!)<br>
+                (robić) = niedokonany → <b>będę robić</b>
+            </div>
+
+            <h4>🔹 2. Czasowniki na "-ĄĆ" (zacząć, wziąć, przyjąć)</h4>
+            <div class="ru-hint">
+                <strong>🇷🇺 Hak:</strong> Podobne do rosyjskiego "начну, возьму"!<br>
+                Я начн<b>у</b> = Ja zaczn<b>ę</b> | Он начн<b>ёт</b> = On zaczn<b>ie</b>
+            </div>
+            <table>
+                <tr><th>Osoba</th><th>ZACZĄĆ</th><th>WZIĄĆ</th></tr>
+                <tr><td>ja</td><td>zaczn<b>ę</b></td><td>wezm<b>ę</b></td></tr>
+                <tr><td>ty</td><td>zaczn<b>iesz</b></td><td>weźm<b>iesz</b></td></tr>
+                <tr><td>on/ona</td><td>zaczn<b>ie</b></td><td>weźm<b>ie</b></td></tr>
+                <tr><td>my</td><td>zaczn<b>iemy</b></td><td>weźm<b>iemy</b></td></tr>
+                <tr><td>wy</td><td>zaczn<b>iecie</b></td><td>weźm<b>iecie</b></td></tr>
+                <tr><td>oni</td><td>zaczn<b>ą</b></td><td>wezm<b>ą</b></td></tr>
+            </table>
+
+            <h4>🔹 3. Czasowniki na "-NIĆ" (dzwonić, tęsknić, martwić się)</h4>
+            <div class="ru-hint">
+                <strong>🇷🇺 Hak:</strong> Podobne do rosyjskiego "звоню, скучаю"!<br>
+                Я звон<b>ю</b> = Ja dzwon<b>ię</b> | Он звон<b>ит</b> = On dzwon<b>i</b> (BEZ "e"!)
+            </div>
+            <table>
+                <tr><th>Osoba</th><th>DZWONIĆ</th><th>TĘSKNIĆ</th></tr>
+                <tr><td>ja</td><td>dzwon<b>ię</b></td><td>tęskn<b>ię</b></td></tr>
+                <tr><td>ty</td><td>dzwon<b>isz</b></td><td>tęskn<b>isz</b></td></tr>
+                <tr><td>on/ona</td><td>dzwon<b>i</b></td><td>tęskn<b>i</b></td></tr>
+                <tr><td>my</td><td>dzwon<b>imy</b></td><td>tęskn<b>imy</b></td></tr>
+                <tr><td>wy</td><td>dzwon<b>icie</b></td><td>tęskn<b>icie</b></td></tr>
+                <tr><td>oni</td><td>dzwon<b>ią</b></td><td>tęskn<b>ią</b></td></tr>
+            </table>
+            <div class="warning-box">
+                <strong>⚠️ PUŁAPKA:</strong> ON/ONA kończy się na <b>-i</b> (NIE: -ie!):<br>
+                On dzwon<b>i</b> (NIE: dzwonie) | Ona tęskn<b>i</b> (NIE: tęsknie) | On sprawdz<b>i</b> (NIE: sprawdzie)
+            </div>
+
+            <h4>🔹 4. Zasada "OGONEK DLA JA" (Буква Ę только для Я)</h4>
+            <div class="ru-hint">
+                <strong>🇷🇺 Hak:</strong> Rosyjskie -У/-Ю (для Я) = Polskie -Ę<br>
+                Я пиш<b>у</b> = Ja pisz<b>ę</b> | Он пиш<b>ет</b> = On pisz<b>e</b> (BEZ ogonka!)
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ Litera Ę jest TYLKO dla osoby JA!</strong><br>
+                Ja będ<b>ę</b> | On będzi<b>e</b> (NIE: będzię!)<br>
+                Egzamin będzi<b>e</b> trudny. (NIE: będzię!)
+            </div>
         </div>
-        <div class="instructions">Wpisz poprawną formę czasownika. Zwróć uwagę na aspekt (proces/rezultat) oraz końcówki osobowe.</div>
+        <div class="instructions">📝 Wpisz poprawną formę czasownika. Zwróć uwagę na aspekt (proces/rezultat) oraz końcówki osobowe.</div>
         <div id="quiz-blok3"></div>
         <div class="action-buttons">
             <button class="btn check-btn" onclick="checkAnswers('quiz-blok3')">✔ Sprawdź odpowiedzi</button>
@@ -320,21 +582,84 @@
 
     <!-- BLOK 4 -->
     <div id="Blok4" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok4', this)">📖 Pokaż zasady</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok4', this)">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok4" class="rules-box">
-            <h3>📖 BLOK 4 - Rosyjskie Haki (Przyimki / Rekcja):</h3>
-            <ul>
-                <li><b>TĘSKNIĆ + ZA</b> (Narzędnik): Tęsknię <b>za</b> tobą. (RU: скучаю <b>по</b> тебе - INNY przyimek!)</li>
-                <li><b>CZEKAĆ + NA</b> (Biernik): Czekam <b>na</b> autobus. (RU: жду автобус - BRAK przyimka!)</li>
-                <li><b>MARTWIĆ SIĘ + O</b> (Biernik): Martwię się <b>o</b> ciebie. (RU: волнуюсь <b>за</b> тебя - INNY przyimek!)</li>
-                <li><b>PYTAĆ / PROSIĆ + O</b> (Biernik): Pytam <b>o</b> drogę. Proszę <b>o</b> pomoc.</li>
-                <li><b>ZASTANAWIAĆ SIĘ + NAD</b> (Narzędnik): Zastanawiam się <b>nad</b> problemem.</li>
-                <li><b>DLA</b> (Dopełniacz): Prezent <b>dla</b> mamy. (Przeznaczenie)</li>
-                <li><b>PRZEZ</b> (Biernik): Idę <b>przez</b> park. / Spóźniłem się <b>przez</b> korki. (Droga lub przyczyna)</li>
-                <li><b>OD</b> (Dopełniacz): List <b>od</b> brata. Pracuję <b>od</b> poniedziałku. (Pochodzenie lub punkt w czasie)</li>
-            </ul>
+            <h3>📖 BLOK 4 - Przyimki / Rekcja (Предлоги / Управление)</h3>
+
+            <div class="ru-hint">
+                <strong>🇷🇺 UWAGA!</strong> Przyimki to NAJTRUDNIEJSZY temat dla Rosjan!<br>
+                Wiele przyimków jest INNYCH niż w rosyjskim. Musisz je zapamiętać!
+            </div>
+
+            <h4>🔹 1. TĘSKNIĆ + ZA (Narzędnik)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Tęsknię <b>ZA</b> tobą. Tęsknię <b>ZA</b> domem.</span><br>
+                <span class="ru">🇷🇺 Скучаю <b>ПО</b> тебе. Скучаю <b>ПО</b> дому. (INNY przyimek!)</span>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ Polski ZA ≠ Rosyjski ПО!</strong> To częsty błąd!
+            </div>
+
+            <h4>🔹 2. CZEKAĆ + NA (Biernik)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Czekam <b>NA</b> autobus. Czekam <b>NA</b> ciebie.</span><br>
+                <span class="ru">🇷🇺 Жду автобус. Жду тебя. (BRAK przyimka!)</span>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ W rosyjskim BRAK przyimka, w polskim JEST!</strong>
+            </div>
+
+            <h4>🔹 3. MARTWIĆ SIĘ + O (Biernik)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Martwię się <b>O</b> ciebie. Martwię się <b>O</b> zdrowie.</span><br>
+                <span class="ru">🇷🇺 Волнуюсь <b>ЗА</b> тебя. Беспокоюсь <b>О</b> здоровье.</span>
+            </div>
+
+            <h4>🔹 4. PYTAĆ / PROSIĆ + O (Biernik)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Pytam <b>O</b> drogę. Proszę <b>O</b> pomoc.</span><br>
+                <span class="ru">🇷🇺 Спрашиваю <b>О</b> дороге. Прошу <b>О</b> помощи. (Tu podobnie!)</span>
+            </div>
+
+            <h4>🔹 5. ZASTANAWIAĆ SIĘ + NAD (Narzędnik)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Zastanawiam się <b>NAD</b> problemem.</span><br>
+                <span class="ru">🇷🇺 Думаю <b>НАД</b> проблемой. (Tu identycznie!)</span>
+            </div>
+
+            <h4>🔹 6. DLA (Dopełniacz) - Przeznaczenie</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Prezent <b>DLA</b> mamy. Kwiaty <b>DLA</b> żony.</span><br>
+                <span class="ru">🇷🇺 Подарок <b>ДЛЯ</b> мамы. Цветы <b>ДЛЯ</b> жены. (Identycznie!)</span>
+            </div>
+
+            <h4>🔹 7. PRZEZ (Biernik) - Droga lub Przyczyna</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Idę <b>PRZEZ</b> park. (droga)</span><br>
+                <span class="pl">🇵🇱 Spóźniłem się <b>PRZEZ</b> korki. (przyczyna)</span><br>
+                <span class="ru">🇷🇺 Иду <b>ЧЕРЕЗ</b> парк. | Опоздал <b>ИЗ-ЗА</b> пробок.</span>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ Polski PRZEZ = Rosyjski ЧЕРЕЗ (droga) lub ИЗ-ЗА (przyczyna)!</strong>
+            </div>
+
+            <h4>🔹 8. OD (Dopełniacz) - Pochodzenie lub Punkt w czasie</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 List <b>OD</b> brata. Pracuję tu <b>OD</b> trzech lat.</span><br>
+                <span class="ru">🇷🇺 Письмо <b>ОТ</b> брата. Работаю тут <b>С</b> трёх лет.</span>
+            </div>
+
+            <h4>📋 TABELA PODSUMOWUJĄCA:</h4>
+            <table>
+                <tr><th>Czasownik PL</th><th>Przyimek PL</th><th>Rosyjski odpowiednik</th></tr>
+                <tr><td>tęsknić</td><td><b>ZA</b> + Narzędnik</td><td>скучать <b>ПО</b> + Дат.</td></tr>
+                <tr><td>czekać</td><td><b>NA</b> + Biernik</td><td>ждать + Вин. (BEZ przyimka!)</td></tr>
+                <tr><td>martwić się</td><td><b>O</b> + Biernik</td><td>волноваться <b>ЗА</b> + Вин.</td></tr>
+                <tr><td>pytać / prosić</td><td><b>O</b> + Biernik</td><td>спрашивать / просить <b>О</b></td></tr>
+                <tr><td>zastanawiać się</td><td><b>NAD</b> + Narzędnik</td><td>думать <b>НАД</b> + Твор.</td></tr>
+            </table>
         </div>
-        <div class="instructions">Wpisz odpowiedni przyimek (za, na, o, nad, dla, przez, od). Zidentyfikuj czasownik lub kontekst.</div>
+        <div class="instructions">📝 Wpisz odpowiedni przyimek (za, na, o, nad, dla, przez, od). Zidentyfikuj czasownik lub kontekst.</div>
         <div id="quiz-blok4"></div>
         <div class="action-buttons">
             <button class="btn check-btn" onclick="checkAnswers('quiz-blok4')">✔ Sprawdź odpowiedzi</button>
@@ -344,29 +669,174 @@
 
     <!-- BLOK 5 -->
     <div id="Blok5" class="tabcontent">
-        <button class="rules-toggle" onclick="toggleRules('rules-blok5', this)">📖 Pokaż zasady</button>
+        <button class="rules-toggle" onclick="toggleRules('rules-blok5', this)">📖 Pokaż zasady i rosyjskie haki</button>
         <div id="rules-blok5" class="rules-box">
-            <h3>📖 BLOK 5 - Rosyjskie Haki (Czas przeszły):</h3>
-            <ul>
-                <li><b>JA (mężczyzna):</b> делал + <b>em</b> = robił<b>em</b>, pisał<b>em</b>, czytał<b>em</b></li>
-                <li><b>JA (kobieta):</b> делала + <b>am</b> = robił<b>am</b>, pisał<b>am</b>, czytał<b>am</b></li>
-                <li><b>TY (mężczyzna):</b> делал + <b>eś</b> = robił<b>eś</b>, pisał<b>eś</b></li>
-                <li><b>TY (kobieta):</b> делала + <b>aś</b> = robił<b>aś</b>, pisał<b>aś</b></li>
-                <li><b>ON / ONA:</b> Identycznie jak w rosyjskim: <i>robił / robiła, pisał / pisała</i></li>
-                <li><b>MY (mężczyźni/miks):</b> robi<b>liśmy</b>, pisa<b>liśmy</b> (z literą <b>L</b>)</li>
-                <li><b>MY (kobiety):</b> robi<b>łyśmy</b>, pisa<b>łyśmy</b> (z literą <b>Ł</b>)</li>
-                <li><b>WY (mężczyźni/miks):</b> robi<b>liście</b>, pisa<b>liście</b></li>
-                <li><b>WY (kobiety):</b> robi<b>łyście</b>, pisa<b>łyście</b></li>
-                <li><b>ONI:</b> robili, pisali (męskoosobowa z <b>L</b>)</li>
-                <li><b>ONE:</b> robiły, pisały (niemęskoosobowa z <b>Ł</b>)</li>
-                <li><b>⚠️ PUŁAPKA "PÓJŚĆ / IŚĆ":</b> MY = po<b>szli</b>śmy (NIGDY: poszedliśmy!), WY = po<b>szli</b>ście, ONI = po<b>szli</b></li>
-            </ul>
+            <h3>📖 BLOK 5 - Czas przeszły (Прошедшее время)</h3>
+
+            <div class="ru-hint">
+                <strong>🇷🇺 Rosyjski hak - GŁÓWNA ZASADA:</strong><br>
+                Polski czas przeszły = Rosyjski czas przeszły + KOŃCÓWKA OSOBOWA!<br>
+                Он дел<b>ал</b> = On robi<b>ł</b> (identycznie!)<br>
+                Я дел<b>ал</b> = Ja robi<b>łem</b> (dodajemy -em!)
+            </div>
+
+            <h4>🔹 1. Końcówki dla JA / TY (Я / ТЫ)</h4>
+            <table>
+                <tr><th>Osoba</th><th>Mężczyzna</th><th>Kobieta</th><th>Rosyjski</th></tr>
+                <tr><td><b>JA</b></td><td>robiłem, pisałem</td><td>robiłam, pisałam</td><td>я делал(а)</td></tr>
+                <tr><td><b>TY</b></td><td>robiłeś, pisałeś</td><td>robiłaś, pisałaś</td><td>ты делал(а)</td></tr>
+            </table>
+            <div class="ru-hint">
+                <strong>🇷🇺 Hak:</strong> Rosyjskie -Л + polska końcówka osobowa!<br>
+                дела<b>л</b> + <b>em</b> = robiłem | дела<b>ла</b> + <b>m</b> = robiłam
+            </div>
+
+            <h4>🔹 2. Końcówki dla MY / WY (МЫ / ВЫ)</h4>
+            <table>
+                <tr><th>Osoba</th><th>Mężczyźni / Miks</th><th>Tylko kobiety</th></tr>
+                <tr><td><b>MY</b></td><td>robi<b>liśmy</b> (L)</td><td>robi<b>łyśmy</b> (Ł)</td></tr>
+                <tr><td><b>WY</b></td><td>robi<b>liście</b> (L)</td><td>robi<b>łyście</b> (Ł)</td></tr>
+            </table>
+            <div class="warning-box">
+                <strong>⚠️ PUŁAPKA L vs Ł:</strong><br>
+                Mężczyźni (lub miks) = <b>L</b>: robiliśmy, pisaliście<br>
+                Tylko kobiety = <b>Ł</b>: robiłyśmy, pisałyście
+            </div>
+
+            <h4>🔹 3. Końcówki dla ONI / ONE (ОНИ)</h4>
+            <table>
+                <tr><th>Grupa</th><th>Forma</th><th>Przykład</th></tr>
+                <tr><td><b>ONI</b> (męskoosobowa)</td><td>-li (L)</td><td>Chłopcy robi<b>li</b>, pisa<b>li</b></td></tr>
+                <tr><td><b>ONE</b> (niemęskoosobowa)</td><td>-ły (Ł)</td><td>Dziewczyny robi<b>ły</b>, pisa<b>ły</b></td></tr>
+            </table>
+
+            <h4>🔹 4. PUŁAPKA: PÓJŚĆ / IŚĆ (Идти / Пойти)</h4>
+            <div class="warning-box">
+                <strong>⚠️ NAJWIĘKSZA PUŁAPKA!</strong> Czasownik PÓJŚĆ ma NIEREGULARNĄ odmianę!<br>
+                <b>NIGDY</b> nie mów: "poszedliśmy"! <b>Poprawnie:</b> po<b>szli</b>śmy!
+            </div>
+            <table>
+                <tr><th>Osoba</th><th>PÓJŚĆ</th><th>Błędna forma</th></tr>
+                <tr><td>ja (mężczyzna)</td><td>po<b>szedł</b>em</td><td>—</td></tr>
+                <tr><td>ja (kobieta)</td><td>po<b>szł</b>am</td><td>—</td></tr>
+                <tr><td>my (męski)</td><td>po<b>szli</b>śmy</td><td>❌ poszedliśmy</td></tr>
+                <tr><td>wy (męski)</td><td>po<b>szli</b>ście</td><td>❌ poszedliście</td></tr>
+                <tr><td>oni</td><td>po<b>szli</b></td><td>❌ poszedli</td></tr>
+            </table>
         </div>
-        <div class="instructions">Wpisz poprawną formę czasu przeszłego. Zwróć uwagę na płeć osoby/grupy oraz końcówki osobowe.</div>
+        <div class="instructions">📝 Wpisz poprawną formę czasu przeszłego. Zwróć uwagę na płeć osoby/grupy oraz końcówki osobowe.</div>
         <div id="quiz-blok5"></div>
         <div class="action-buttons">
             <button class="btn check-btn" onclick="checkAnswers('quiz-blok5')">✔ Sprawdź odpowiedzi</button>
             <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok5', poolBlok5)">🔄 Losuj nowe pytania</button>
+        </div>
+    </div>
+
+    <!-- BLOK 6 - TRYB WARUNKOWY -->
+    <div id="Blok6" class="tabcontent">
+        <button class="rules-toggle" onclick="toggleRules('rules-blok6', this)">📖 Pokaż zasady i rosyjskie haki</button>
+        <div id="rules-blok6" class="rules-box">
+            <h3>📖 BLOK 6 - Tryb warunkowy (Условное наклонение)</h3>
+
+            <div class="ru-hint">
+                <strong>🇷🇺 Rosyjski hak - GŁÓWNA ZASADA:</strong><br>
+                Polski tryb warunkowy = Rosyjski tryb warunkowy, ALE cząstka "бы" jest WKLEJONA w czasownik!<br>
+                Я хотел <b>бы</b> = Ja chciał<b>bym</b> (бы wchodzi do środka słowa!)
+            </div>
+
+            <h4>🔹 1. Tworzenie trybu warunkowego</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 <b>Formuła:</b> CZAS PRZESZŁY + BY + końcówka osobowa</span><br>
+                <span class="ru">🇷🇺 Формула: ПРОШЕДШЕЕ ВРЕМЯ + БЫ (но БЫ вклеивается!)</span>
+            </div>
+            <table>
+                <tr><th>Rosyjski</th><th>Polski</th><th>Analiza</th></tr>
+                <tr><td>Я хотел <b>бы</b></td><td>chciał<b>bym</b></td><td>chciał + by + m</td></tr>
+                <tr><td>Ты хотел <b>бы</b></td><td>chciał<b>byś</b></td><td>chciał + by + ś</td></tr>
+                <tr><td>Он хотел <b>бы</b></td><td>chciał<b>by</b></td><td>chciał + by</td></tr>
+                <tr><td>Мы хотели <b>бы</b></td><td>chcieli<b>byśmy</b></td><td>chcieli + by + śmy</td></tr>
+                <tr><td>Вы хотели <b>бы</b></td><td>chcieli<b>byście</b></td><td>chcieli + by + ście</td></tr>
+                <tr><td>Они хотели <b>бы</b></td><td>chcieli<b>by</b></td><td>chcieli + by</td></tr>
+            </table>
+
+            <h4>🔹 2. Tabela końcówek (MĘŻCZYZNA vs KOBIETA)</h4>
+            <table>
+                <tr><th>Osoba</th><th>Mężczyzna</th><th>Kobieta</th><th>Rosyjski</th></tr>
+                <tr><td><b>JA</b></td><td>chciał<b>bym</b></td><td>chciała<b>bym</b></td><td>я хотел(а) бы</td></tr>
+                <tr><td><b>TY</b></td><td>chciał<b>byś</b></td><td>chciała<b>byś</b></td><td>ты хотел(а) бы</td></tr>
+                <tr><td><b>ON/ONA</b></td><td>chciał<b>by</b></td><td>chciała<b>by</b></td><td>он(а) хотел(а) бы</td></tr>
+                <tr><td><b>MY</b></td><td>chcieli<b>byśmy</b></td><td>chciały<b>byśmy</b></td><td>мы хотели бы</td></tr>
+                <tr><td><b>WY</b></td><td>chcieli<b>byście</b></td><td>chciały<b>byście</b></td><td>вы хотели бы</td></tr>
+                <tr><td><b>ONI/ONE</b></td><td>chcieli<b>by</b></td><td>chciały<b>by</b></td><td>они хотели бы</td></tr>
+            </table>
+            <div class="warning-box">
+                <strong>⚠️ PUŁAPKA PŁCI:</strong><br>
+                Kobieta mówi: <b>chciałabym</b> (NIE: chciałbym!)<br>
+                Mężczyźni/Miks (MY): <b>chcielibyśmy</b> (L) | Tylko kobiety: <b>chciałybyśmy</b> (Ł)
+            </div>
+
+            <h4>🔹 3. Inne czasowniki w trybie warunkowym</h4>
+            <table>
+                <tr><th>Bezokolicznik</th><th>JA (mężczyzna)</th><th>JA (kobieta)</th><th>ON</th><th>ONI</th></tr>
+                <tr><td>móc</td><td>mógł<b>bym</b></td><td>mogła<b>bym</b></td><td>mógł<b>by</b></td><td>mogli<b>by</b></td></tr>
+                <tr><td>być</td><td>był<b>bym</b></td><td>była<b>bym</b></td><td>był<b>by</b></td><td>byli<b>by</b></td></tr>
+                <tr><td>zrobić</td><td>zrobił<b>bym</b></td><td>zrobiła<b>bym</b></td><td>zrobił<b>by</b></td><td>zrobili<b>by</b></td></tr>
+                <tr><td>powiedzieć</td><td>powiedział<b>bym</b></td><td>powiedziała<b>bym</b></td><td>powiedział<b>by</b></td><td>powiedzieli<b>by</b></td></tr>
+                <tr><td>pojechać</td><td>pojechał<b>bym</b></td><td>pojechała<b>bym</b></td><td>pojechał<b>by</b></td><td>pojechali<b>by</b></td></tr>
+            </table>
+
+            <h4>🔹 4. WĘDRÓWKA CZĄSTKI "BY" (Миграция частицы БЫ)</h4>
+            <div class="ru-hint">
+                <strong>🇷🇺 Rosyjski hak:</strong> W rosyjskim "бы" może wędrować. W polskim też, ale WKLEJA się w spójnik!<br>
+                <b>Если бы</b> я знал... = <b>Gdybym</b> wiedział... (бы wchodzi w "если" = "gdyby"!)
+            </div>
+            <table>
+                <tr><th>Osoba</th><th>GDYBY (если бы)</th><th>ŻEBY (чтобы)</th></tr>
+                <tr><td><b>JA</b></td><td>gdy<b>bym</b></td><td>że<b>bym</b></td></tr>
+                <tr><td><b>TY</b></td><td>gdy<b>byś</b></td><td>że<b>byś</b></td></tr>
+                <tr><td><b>ON/ONA</b></td><td>gdy<b>by</b></td><td>że<b>by</b></td></tr>
+                <tr><td><b>MY</b></td><td>gdy<b>byśmy</b></td><td>że<b>byśmy</b></td></tr>
+                <tr><td><b>WY</b></td><td>gdy<b>byście</b></td><td>że<b>byście</b></td></tr>
+                <tr><td><b>ONI/ONE</b></td><td>gdy<b>by</b></td><td>że<b>by</b></td></tr>
+            </table>
+
+            <h4>🔹 5. Zdania z GDYBY... (Если бы...)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 <b>Gdybym</b> wiedział, powiedziałbym ci.</span><br>
+                <span class="ru">🇷🇺 <b>Если бы</b> я знал, я бы тебе сказал.</span>
+            </div>
+            <div class="example-box">
+                <span class="pl">🇵🇱 <b>Gdybyś</b> mógł, pomógłbyś mi?</span><br>
+                <span class="ru">🇷🇺 <b>Если бы</b> ты мог, ты бы мне помог?</span>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ PUŁAPKA:</strong> Po GDYBY czasownik jest w czasie PRZESZŁYM (bez BY)!<br>
+                Gdybym <b>wiedział</b> (NIE: gdybym wiedzieć, NIE: gdybym wiedziałbym!)
+            </div>
+
+            <h4>🔹 6. Zdania z ŻEBY... (Чтобы...)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Chcę, <b>żebyś</b> przyszedł.</span><br>
+                <span class="ru">🇷🇺 Хочу, <b>чтобы</b> ты пришёл.</span>
+            </div>
+            <div class="example-box">
+                <span class="pl">🇵🇱 Proszę, <b>żebyście</b> byli cicho.</span><br>
+                <span class="ru">🇷🇺 Прошу, <b>чтобы</b> вы были тихо.</span>
+            </div>
+
+            <h4>🔹 7. Typowe konstrukcje (Типичные конструкции)</h4>
+            <div class="example-box">
+                <span class="pl">🇵🇱 <b>Chciałbym</b> zamówić kawę. (Я хотел бы заказать кофе.)</span><br>
+                <span class="pl">🇵🇱 <b>Czy mógłbyś</b> mi pomóc? (Ты мог бы мне помочь?)</span><br>
+                <span class="pl">🇵🇱 <b>Na twoim miejscu</b> zrobiłbym to inaczej. (На твоём месте я бы сделал это иначе.)</span><br>
+                <span class="pl">🇵🇱 <b>Co byś zrobił</b>, gdybyś wygrał milion? (Что бы ты сделал, если бы выиграл миллион?)</span>
+            </div>
+        </div>
+        <div class="instructions">📝 Wpisz poprawną formę trybu warunkowego. Zwróć uwagę na płeć osoby/grupy oraz wędrówkę cząstki BY.</div>
+        <div id="quiz-blok6"></div>
+        <div class="action-buttons">
+            <button class="btn check-btn" onclick="checkAnswers('quiz-blok6')">✔ Sprawdź odpowiedzi</button>
+            <button class="btn shuffle-btn" onclick="loadRandomQuestions('quiz-blok6', poolBlok6)">🔄 Losuj nowe pytania</button>
         </div>
     </div>
 
@@ -384,10 +854,10 @@
             { q: "Niestety nie mamy w biurze (żadna nowa drukarka).", a: "żadnej nowej drukarki" },
             { q: "Zawsze rano piję (ta zimna woda).", a: "tę zimną wodę" },
             { q: "Czy twoi znajomi (znać) mojego szefa?", a: "znają" },
-            { q: "Wczoraj w sklepie kupiłem (ta wspaniała gra) planszowa.", a: "tę wspaniałą grę" },
+            { q: "Wczoraj w sklepie kupiłem (ta wspaniała gra) planszową.", a: "tę wspaniałą grę" },
             { q: "Niestety w domu nie mam (ta wspaniała gra).", a: "tej wspaniałej gry" },
             { q: "Mój starszy brat jest (bardzo dobry lekarz).", a: "bardzo dobrym lekarzem" },
-            { q: "Spotkanie organizacyjne odbędzie się w (przyszła środa).", a: "przyszłą środę" },
+            { q: "Spotkanie odbędzie się w (przyszła środa).", a: "przyszłą środę" },
             { q: "Idziemy na kolację do (ta wielka restauracja).", a: "tej wielkiej restauracji" },
             { q: "Zaraz idę do kina z (mój najlepszy przyjaciel).", a: "moim najlepszym przyjacielem" },
             { q: "W szafie mam (bardzo ładna koszula).", a: "bardzo ładną koszulę" },
@@ -399,7 +869,10 @@
             { q: "Wczoraj rozmawiałem z (twój nowy kolega).", a: "twoim nowym kolegą" },
             { q: "Czy twoi rodzice (znać) tego profesora?", a: "znają" },
             { q: "Czy pan (wiedzieć), gdzie jest stacja metra?", a: "wie" },
-            { q: "Idziemy do (ta włoska restauracja).", a: "tej włoskiej restauracji" }
+            { q: "Idziemy do (ta włoska restauracja).", a: "tej włoskiej restauracji" },
+            { q: "Nie mam w domu (ta nowa książka).", a: "tej nowej książki" },
+            { q: "Kupiłem prezent dla (moja młodsza siostra).", a: "mojej młodszej siostry" },
+            { q: "Mój tata jest (znany artysta).", a: "znanym artystą" }
         ];
 
         // BAZA PYTAŃ - BLOK 2
@@ -414,24 +887,24 @@
             { q: "To (ciekawa / ciekawsza / najciekawsza) książka w całej bibliotece.", a: "najciekawsza" },
             { q: "Dni są znacznie (krótko / krócej / najkrócej) zimą niż latem.", a: "krócej" },
             { q: "Czuję się dzisiaj o wiele (dobrze / lepiej / najlepiej) niż wczoraj.", a: "lepiej" },
-            { q: "Owoce na targu są znacznie (świeże / świeższe / najświeższe) niż te w supermarkecie.", a: "świeższe" },
-            { q: "Krystyna to (zdolna / zdolniejsza / najzdolniejsza) studentka ze wszystkich na uniwersytecie.", a: "najzdolniejsza" },
-            { q: "Z powodu inflacji jedzenie w sklepach jest coraz (drogie / droższe / najdroższe).", a: "droższe" },
-            { q: "Obecnie ludzie kupują przez internet coraz (często / częściej / najczęściej).", a: "częściej" },
-            { q: "Według statystyk, samolot to (bezpieczny / bezpieczniejszy / najbezpieczniejszy) transport na świecie.", a: "najbezpieczniejszy" },
-            { q: "Z całej grupy sportowej to właśnie on biega (szybko / szybciej / najszybciej).", a: "najszybciej" },
+            { q: "Owoce na targu są znacznie (świeże / świeższe / najświeższe) niż w supermarkecie.", a: "świeższe" },
+            { q: "Krystyna to (zdolna / zdolniejsza / najzdolniejsza) studentka ze wszystkich.", a: "najzdolniejsza" },
+            { q: "Z powodu inflacji jedzenie jest coraz (drogie / droższe / najdroższe).", a: "droższe" },
+            { q: "Ludzie kupują przez internet coraz (często / częściej / najczęściej).", a: "częściej" },
+            { q: "Samolot to (bezpieczny / bezpieczniejszy / najbezpieczniejszy) transport na świecie.", a: "najbezpieczniejszy" },
+            { q: "Z całej grupy on biega (szybko / szybciej / najszybciej).", a: "najszybciej" },
             { q: "Podpisałem umowę na (mały / mniejszy / najmniejszy) pokój w całym akademiku.", a: "najmniejszy" },
-            { q: "Elektronika z tego sklepu jest zazwyczaj (tania / tańsza / najtańsza) niż w salonie.", a: "tańsza" },
-            { q: "W tym roku nasza firma zarobiła o wiele (dużo / więcej / najwięcej) niż w zeszłym.", a: "więcej" },
-            { q: "To bez wątpienia (smaczna / smaczniejsza / najsmaczniejsza) pizza, jaką w życiu jadłem.", a: "najsmaczniejsza" },
-            { q: "Mój stary samochód był o wiele (wolny / wolniejszy / najwolniejszy) niż ten nowy.", a: "wolniejszy" },
+            { q: "Elektronika z tego sklepu jest (tania / tańsza / najtańsza) niż w salonie.", a: "tańsza" },
+            { q: "W tym roku firma zarobiła (dużo / więcej / najwięcej) niż w zeszłym.", a: "więcej" },
+            { q: "To (smaczna / smaczniejsza / najsmaczniejsza) pizza, jaką w życiu jadłem.", a: "najsmaczniejsza" },
+            { q: "Mój stary samochód był (wolny / wolniejszy / najwolniejszy) niż ten nowy.", a: "wolniejszy" },
             { q: "Kupiłem (tani / tańszy / najtańszy) bilet ze wszystkich w kasie.", a: "najtańszy" },
-            { q: "Sytuacja gospodarcza staje się z każdym rokiem coraz (trudna / trudniejsza / najtrudniejsza).", a: "trudniejsza" },
+            { q: "Sytuacja gospodarcza staje się coraz (trudna / trudniejsza / najtrudniejsza).", a: "trudniejsza" },
             { q: "Ten egzamin był o wiele (trudny / trudniejszy / najtrudniejszy) niż poprzedni.", a: "trudniejszy" },
-            { q: "Moja mama gotuje (smacznie / smaczniej / najsmaczniej) ze wszystkich osób, które znam.", a: "najsmaczniej" }
+            { q: "Mama gotuje (smacznie / smaczniej / najsmaczniej) ze wszystkich osób.", a: "najsmaczniej" }
         ];
 
-        // BAZA PYTAŃ - BLOK 3 (Czas przyszły i trudne odmiany)
+        // BAZA PYTAŃ - BLOK 3
         const poolBlok3 = [
             { q: "Czy dyrektor jutro (sprawdzić) te dokumenty?", a: "sprawdzi" },
             { q: "Czy my do jutra na pewno to (napisać)?", a: "napiszemy" },
@@ -461,22 +934,22 @@
             { q: "Mechanik w piątek (naprawić) twój samochód.", a: "naprawi" }
         ];
 
-        // BAZA PYTAŃ - BLOK 4 (Przyimki)
+        // BAZA PYTAŃ - BLOK 4
         const poolBlok4 = [
-            { q: "Każdego dnia rano czekam 15 minut (...) autobus do pracy.", a: "na" },
+            { q: "Każdego dnia rano czekam 15 minut (...) autobus.", a: "na" },
             { q: "Po wyjeździe do Londynu bardzo tęskniłem (...) polskim jedzeniem.", a: "za" },
             { q: "Kupiłem te kwiaty specjalnie (...) mojej żony.", a: "dla" },
             { q: "Muszę się poważnie zastanowić (...) tą nową ofertą pracy.", a: "nad" },
             { q: "Uczyliśmy się intensywnie gramatyki (...) całe popołudnie.", a: "przez" },
-            { q: "Kiedy wyjechałeś, wszyscy znajomi bardzo martwili się (...) twoje zdrowie.", a: "o" },
+            { q: "Kiedy wyjechałeś, wszyscy martwili się (...) twoje zdrowie.", a: "o" },
             { q: "Dostałem wczoraj dziwnego SMS-a (...) mojego szefa.", a: "od" },
             { q: "Kiedy nadeszła zima, zacząłem tęsknić (...) gorącym latem.", a: "za" },
             { q: "Zrobiłem ten błąd tylko (...) moją wielką nieuwagę.", a: "przez" },
-            { q: "Studenci przed salą z niecierpliwością czekają (...) trudny egzamin.", a: "na" },
-            { q: "Podczas podróży cały czas myślałem i zastanawiałem się (...) przyszłością.", a: "nad" },
+            { q: "Studenci z niecierpliwością czekają (...) trudny egzamin.", a: "na" },
+            { q: "Podczas podróży zastanawiałem się (...) przyszłością.", a: "nad" },
             { q: "Profesor przygotował nowe materiały (...) swoich studentów.", a: "dla" },
-            { q: "Kiedy wyjeżdżasz w podróż, cała rodzina się (...) ciebie martwi.", a: "o" },
-            { q: "Całą noc nie spałem, ponieważ czekałem (...) bardzo ważny e-mail.", a: "na" },
+            { q: "Kiedy wyjeżdżasz, cała rodzina się (...) ciebie martwi.", a: "o" },
+            { q: "Całą noc nie spałem, bo czekałem (...) bardzo ważny e-mail.", a: "na" },
             { q: "Ta autostrada była budowana (...) prawie dziesięć lat.", a: "przez" },
             { q: "Wczoraj pewna pani pytała mnie (...) drogę na dworzec.", a: "o" },
             { q: "Kiedy byłem za granicą, bardzo tęskniłem (...) moim łóżkiem.", a: "za" },
@@ -490,7 +963,7 @@
             { q: "Wszyscy w rodzinie martwią się (...) dziadka.", a: "o" }
         ];
 
-        // BAZA PYTAŃ - BLOK 5 (Czas przeszły)
+        // BAZA PYTAŃ - BLOK 5
         const poolBlok5 = [
             { q: "(ja - mężczyzna - zrobić) Wczoraj wieczorem wreszcie (...) te zakupy.", a: "zrobiłem" },
             { q: "(ja - kobieta - zrobić) Wczoraj wieczorem wreszcie (...) te zakupy.", a: "zrobiłam" },
@@ -509,7 +982,7 @@
             { q: "(my - mężczyźni - jeść) Wczoraj (...) kolację o 20:00.", a: "jedliśmy" },
             { q: "(ja - mężczyzna - móc) Niestety nie (...) przyjść na spotkanie.", a: "mogłem" },
             { q: "(ja - kobieta - móc) Niestety nie (...) przyjść na spotkanie.", a: "mogłam" },
-            { q: "(wy - mężczyźni - widzieć) Czy wy (...) wczoraj ten nowy film?", a: "widzieliście" },
+            { q: "(wy - mężczyźni - widzieć) Czy wy (...) wczoraj ten film?", a: "widzieliście" },
             { q: "(my - mężczyźni - mieszkać) Kiedyś (...) w Krakowie.", a: "mieszkaliśmy" },
             { q: "(my - kobiety - mieszkać) Kiedyś (...) w Krakowie.", a: "mieszkałyśmy" },
             { q: "(oni - mężczyźni - przyjść) O której godzinie oni wczoraj (...)?", a: "przyszli" },
@@ -522,17 +995,103 @@
             { q: "(oni - mężczyźni - musieć) Oni (...) wczoraj długo pracować.", a: "musieli" }
         ];
 
+        // BAZA PYTAŃ - BLOK 6 (Tryb warunkowy)
+        const poolBlok6 = [
+            // CHCIAŁBYM + bezokolicznik
+            { q: "(ja - mężczyzna - chcieć) (...) zamówić kawę z mlekiem.", a: "chciałbym" },
+            { q: "(ja - kobieta - chcieć) (...) zamówić herbatę.", a: "chciałabym" },
+            { q: "(ty - mężczyzna - chcieć) Czy (...) pójść ze mną do kina?", a: "chciałbyś" },
+            { q: "(ty - kobieta - chcieć) Czy (...) pójść ze mną na spacer?", a: "chciałabyś" },
+            { q: "(on - chcieć) On (...) kupić nowy samochód.", a: "chciałby" },
+            { q: "(ona - chcieć) Ona (...) pojechać na wakacje do Włoch.", a: "chciałaby" },
+            { q: "(my - mężczyźni - chcieć) (...) zaprosić was na obiad.", a: "chcielibyśmy" },
+            { q: "(my - kobiety - chcieć) (...) zaprosić was na kawę.", a: "chciałybyśmy" },
+            { q: "(wy - mężczyźni - chcieć) Czy (...) obejrzeć z nami ten film?", a: "chcielibyście" },
+            { q: "(wy - kobiety - chcieć) Czy (...) pojechać z nami nad morze?", a: "chciałybyście" },
+            { q: "(oni - chcieć) Oni (...) zorganizować dużą imprezę.", a: "chcieliby" },
+            { q: "(one - chcieć) One (...) otworzyć własną firmę.", a: "chciałyby" },
+
+            // MÓC w trybie warunkowym
+            { q: "(ja - mężczyzna - móc) Czy (...) prosić o szklankę wody?", a: "mógłbym" },
+            { q: "(ja - kobieta - móc) Czy (...) prosić o menu?", a: "mogłabym" },
+            { q: "(ty - mężczyzna - móc) Czy (...) mi pomóc?", a: "mógłbyś" },
+            { q: "(ty - kobieta - móc) Czy (...) mi to wytłumaczyć?", a: "mogłabyś" },
+            { q: "(on - móc) On (...) to zrobić, ale nie chce.", a: "mógłby" },
+            { q: "(ona - móc) Ona (...) tu przyjść, ale jest zajęta.", a: "mogłaby" },
+            { q: "(my - mężczyźni - móc) (...) zacząć wcześniej, gdybyś chciał.", a: "moglibyśmy" },
+            { q: "(wy - mężczyźni - móc) Czy (...) nam pomóc z przeprowadzką?", a: "moglibyście" },
+            { q: "(oni - móc) Oni (...) więcej zarabiać, gdyby pracowali ciężej.", a: "mogliby" },
+
+            // BYĆ w trybie warunkowym
+            { q: "(ja - mężczyzna - być) (...) bardzo szczęśliwy, gdybyś przyszła.", a: "byłbym" },
+            { q: "(ja - kobieta - być) (...) bardzo szczęśliwa, gdybyś przyszedł.", a: "byłabym" },
+            { q: "(ty - mężczyzna - być) (...) zadowolony z tego prezentu?", a: "byłbyś" },
+            { q: "(ty - kobieta - być) (...) zadowolona z tej pracy?", a: "byłabyś" },
+            { q: "(on - być) On (...) świetnym lekarzem, gdyby skończył studia.", a: "byłby" },
+            { q: "(ona - być) Ona (...) dobrą nauczycielką.", a: "byłaby" },
+
+            // ZROBIĆ / POWIEDZIEĆ w trybie warunkowym
+            { q: "(ja - mężczyzna - zrobić) Na twoim miejscu (...) to inaczej.", a: "zrobiłbym" },
+            { q: "(ja - kobieta - zrobić) Na twoim miejscu (...) to inaczej.", a: "zrobiłabym" },
+            { q: "(ty - mężczyzna - zrobić) Co (...) na moim miejscu?", a: "zrobiłbyś" },
+            { q: "(ty - kobieta - zrobić) Co (...) na moim miejscu?", a: "zrobiłabyś" },
+            { q: "(ja - mężczyzna - powiedzieć) Na twoim miejscu (...) mu prawdę.", a: "powiedziałbym" },
+            { q: "(ja - kobieta - powiedzieć) Na twoim miejscu (...) mu prawdę.", a: "powiedziałabym" },
+
+            // POJECHAĆ / KUPIĆ w trybie warunkowym
+            { q: "(ja - mężczyzna - pojechać) Chętnie (...) z wami na wycieczkę.", a: "pojechałbym" },
+            { q: "(ja - kobieta - pojechać) Chętnie (...) z wami na wycieczkę.", a: "pojechałabym" },
+            { q: "(ja - mężczyzna - kupić) (...) ci prezent, ale nie mam pieniędzy.", a: "kupiłbym" },
+            { q: "(ja - kobieta - kupić) (...) ci prezent, ale nie mam pieniędzy.", a: "kupiłabym" },
+
+            // WĘDRÓWKA BY: GDYBYM / GDYBYŚ
+            { q: "(ja) Wpisz tylko spójnik: (...) wiedział wcześniej, powiedziałbym ci.", a: "gdybym" },
+            { q: "(ty) Wpisz tylko spójnik: (...) mógł, pomógłbyś mi?", a: "gdybyś" },
+            { q: "(on) Wpisz tylko spójnik: (...) miał więcej czasu, pojechałby na wakacje.", a: "gdyby" },
+            { q: "(my) Wpisz tylko spójnik: (...) mieli pieniądze, kupilibyśmy dom.", a: "gdybyśmy" },
+            { q: "(wy) Wpisz tylko spójnik: (...) chcieli, moglibyście zostać na noc.", a: "gdybyście" },
+
+            // WĘDRÓWKA BY: ŻEBYM / ŻEBYŚ
+            { q: "(ja) Wpisz tylko spójnik: Chcę, (...) to zrozumiał.", a: "żebym" },
+            { q: "(ty) Wpisz tylko spójnik: Proszę, (...) przyszła punktualnie.", a: "żebyś" },
+            { q: "(on) Wpisz tylko spójnik: Chciałbym, (...) był szczęśliwy.", a: "żeby" },
+            { q: "(my) Wpisz tylko spójnik: Nauczyciel chce, (...) napisali test.", a: "żebyśmy" },
+            { q: "(wy) Wpisz tylko spójnik: Proszę, (...) byli cicho.", a: "żebyście" },
+
+            // Zdania z GDYBY - czasownik w przeszłym
+            { q: "(ja - mężczyzna) Gdybym (...) więcej czasu, uczyłbym się języków. (mieć)", a: "miał" },
+            { q: "(ja - kobieta) Gdybym (...) więcej czasu, uczyłabym się tańca. (mieć)", a: "miała" },
+            { q: "(ty - mężczyzna) Gdybyś (...) prawdę, co byś zrobił? (wiedzieć)", a: "wiedział" },
+            { q: "(ty - kobieta) Gdybyś (...) prawdę, co byś zrobiła? (wiedzieć)", a: "wiedziała" },
+            { q: "(on) Gdyby (...) bogatszy, kupiłby sobie jacht. (być)", a: "był" },
+            { q: "(ona) Gdyby (...), pomogłaby ci. (móc)", a: "mogła" },
+            { q: "(my - mężczyźni) Gdybyśmy (...) bliżej, odwiedzalibyśmy was częściej. (mieszkać)", a: "mieszkali" },
+            { q: "(wy - mężczyźni) Gdybyście (...) więcej, zdalibyście egzamin. (uczyć się)", a: "uczyli się" },
+
+            // Mieszane - pełne zdania
+            { q: "(ja - mężczyzna) Co byś (...), gdybyś wygrał milion złotych? (zrobić)", a: "zrobił" },
+            { q: "(ja - kobieta) Co byś (...), gdybyś wygrała milion złotych? (zrobić)", a: "zrobiła" },
+            { q: "(ja - mężczyzna - jeść) Chętnie (...) teraz pizzę.", a: "zjadłbym" },
+            { q: "(ja - kobieta - jeść) Chętnie (...) teraz pizzę.", a: "zjadłabym" },
+            { q: "(ja - mężczyzna - pójść) (...) z tobą do teatru.", a: "poszedłbym" },
+            { q: "(ja - kobieta - pójść) (...) z tobą do teatru.", a: "poszłabym" },
+            { q: "(my - mężczyźni - pójść) Chętnie (...) z wami na koncert.", a: "poszlibyśmy" },
+            { q: "(ja - mężczyzna - wziąć) Na twoim miejscu (...) parasol.", a: "wziąłbym" },
+            { q: "(ja - kobieta - wziąć) Na twoim miejscu (...) parasol.", a: "wzięłabym" }
+        ];
+
         let currentQuestionsBlok1 = [];
         let currentQuestionsBlok2 = [];
         let currentQuestionsBlok3 = [];
         let currentQuestionsBlok4 = [];
         let currentQuestionsBlok5 = [];
+        let currentQuestionsBlok6 = [];
 
         function toggleRules(rulesId, button) {
             const rulesBox = document.getElementById(rulesId);
             if (rulesBox.classList.contains('visible')) {
                 rulesBox.classList.remove('visible');
-                button.textContent = '📖 Pokaż zasady';
+                button.textContent = '📖 Pokaż zasady i rosyjskie haki';
                 button.classList.remove('active');
             } else {
                 rulesBox.classList.add('visible');
@@ -550,6 +1109,7 @@
             else if (containerId === 'quiz-blok3') currentQuestionsBlok3 = selected;
             else if (containerId === 'quiz-blok4') currentQuestionsBlok4 = selected;
             else if (containerId === 'quiz-blok5') currentQuestionsBlok5 = selected;
+            else if (containerId === 'quiz-blok6') currentQuestionsBlok6 = selected;
 
             const container = document.getElementById(containerId);
             container.innerHTML = '';
@@ -604,6 +1164,7 @@
             else if (containerId === 'quiz-blok3') currentQuestions = currentQuestionsBlok3;
             else if (containerId === 'quiz-blok4') currentQuestions = currentQuestionsBlok4;
             else if (containerId === 'quiz-blok5') currentQuestions = currentQuestionsBlok5;
+            else if (containerId === 'quiz-blok6') currentQuestions = currentQuestionsBlok6;
 
             let score = 0;
             let total = currentQuestions.length;
@@ -624,21 +1185,23 @@
 
                     if (userAnswer === "") {
                         feedback.innerHTML = `<div class="feedback-details">
-                                Poprawnie: <b>${correctAnswer}</b>
-                            </div>`;
+                                    Poprawnie: <b>${correctAnswer}</b>
+                                </div>`;
                     } else {
                         const diffs = generateDiff(correctAnswer, userAnswer);
                         feedback.innerHTML = `
-                            <div class="feedback-details">
-                                <span style="color:#7f8c8d; font-size:13px;">Twoja odp.:</span> ${diffs.userHTML}<br>
-                                <span style="color:#7f8c8d; font-size:13px;">Poprawnie:</span> ${diffs.correctHTML}
-                            </div>`;
+                                <div class="feedback-details">
+                                    <span style="color:#7f8c8d; font-size:13px;">Twoja odp.:</span> ${diffs.userHTML}<br>
+                                    <span style="color:#7f8c8d; font-size:13px;">Poprawnie:</span> ${diffs.correctHTML}
+                                </div>`;
                     }
                 }
             });
 
+            const percentage = Math.round((score / total) * 100);
+
             if (score === total) {
-                alert(`Twój wynik: ${score} / ${total} punktów!\n\nGratulacje! 🏆 Masz 100% poprawnych odpowiedzi.\nKliknij OK, aby wylosować nowy zestaw zadań.`);
+                alert(`🏆 Twój wynik: ${score} / ${total} (${percentage}%)\n\nGratulacje! Masz 100% poprawnych odpowiedzi!\nKliknij OK, aby wylosować nowy zestaw zadań.`);
 
                 let pool;
                 if (containerId === 'quiz-blok1') pool = poolBlok1;
@@ -646,10 +1209,11 @@
                 else if (containerId === 'quiz-blok3') pool = poolBlok3;
                 else if (containerId === 'quiz-blok4') pool = poolBlok4;
                 else if (containerId === 'quiz-blok5') pool = poolBlok5;
+                else if (containerId === 'quiz-blok6') pool = poolBlok6;
 
                 loadRandomQuestions(containerId, pool);
             } else {
-                alert(`Twój wynik: ${score} / ${total} punktów.\n\nMasz błędy. Przeanalizuj to, co podkreślone na czerwono, popraw i sprawdź jeszcze raz!`);
+                alert(`📊 Twój wynik: ${score} / ${total} (${percentage}%)\n\nMasz błędy. Przeanalizuj to, co podkreślone na czerwono, popraw i sprawdź jeszcze raz!`);
             }
         }
 
@@ -672,6 +1236,7 @@
             loadRandomQuestions('quiz-blok3', poolBlok3);
             loadRandomQuestions('quiz-blok4', poolBlok4);
             loadRandomQuestions('quiz-blok5', poolBlok5);
+            loadRandomQuestions('quiz-blok6', poolBlok6);
             document.getElementById("defaultOpen").click();
         };
     </script>
